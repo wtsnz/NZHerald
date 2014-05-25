@@ -53,6 +53,9 @@
         NSURL *imageUrl = [NSURL URLWithString:[self.article.imageUrls firstObject]];
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageUrl];
         
+        self.articleImageView.alpha = 0.0f;
+        self.reversedArticleImageView.alpha = 0.0f;
+        
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
         requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -78,7 +81,16 @@
         [self addSubview:self.headingLabel];
         
         self.introLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.introLabel.text = self.article.introText;
+        
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        style.lineSpacing = 0;
+        
+        NSMutableAttributedString *introText = [[NSMutableAttributedString alloc] initWithData:[self.article.introText dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+        
+        [introText addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, [introText length])];
+        [introText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Georgia-Italic" size:18] range:NSMakeRange(0, [introText length])];
+        [introText addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [introText length])];
+        self.introLabel.attributedText = introText;
         self.introLabel.textColor = [UIColor whiteColor];
         self.introLabel.font = [UIFont fontWithName:@"Georgia-Italic" size:18];
         self.introLabel.numberOfLines = 0;

@@ -39,6 +39,8 @@
         
         
         NSURL *imageUrl = [NSURL URLWithString:@"http://rss.nzherald.co.nz/touch/?version=2.2&method=stories.getLatest&cId=698&maxrows=35&fullContent=1&appID=41&apiKey=41:1401105000:1631861A2A8F57DB49E56A6DBD37D06B40F58501"];
+        //imageUrl = [NSURL URLWithString:@"http://rss.nzherald.co.nz/touch/?version=2.2&method=stories.getLatest&cId=1&maxrows=35&fullContent=1&appID=41&apiKey=41:1401105000:1631861A2A8F57DB49E56A6DBD37D06B40F58501"];
+        
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageUrl];
         
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
