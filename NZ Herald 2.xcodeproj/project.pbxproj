@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		44794B08DB0F4E0D87DB9BA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69641A2ECE70486DBCD5875E /* Images.xcassets */; };
 		7EFCAEB79D52440185326171 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D928AB5DAF3145F2AF909CCF /* Foundation.framework */; };
+		8E39F4BA39B946E1BE0B685A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B7288B277C4B0AAF7173FB /* libPods.a */; };
 		8E4FD7CCA9704ABEA832FB3A /* NZHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADFCE2B2B764CDB8694E819 /* NZHAppDelegate.m */; };
 		9088187D152B41FE9B8388B9 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBE4565D87B4F30A8AA3425 /* libPods-unit_tests.a */; };
 		9EC92E7117CB4567AFC77BDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1EC4A96CA640978BF68990 /* main.m */; };
+		BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */; };
+		BEC52E9F1931E1C7001B69E8 /* NZHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52E9E1931E1C7001B69E8 /* NZHCategoryViewController.m */; };
+		BEC52EA21931E5D0001B69E8 /* NZHArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52EA11931E5D0001B69E8 /* NZHArticle.m */; };
+		BEC52EA51931FB3D001B69E8 /* NZHArticleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52EA41931FB3D001B69E8 /* NZHArticleHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +41,19 @@
 		78209622F28C4781864A98AC /* NZ Herald 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NZ Herald 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C649F39D3F2483DBA1B84B6 /* NZHAppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NZHAppDelegate.h; sourceTree = "<group>"; };
 		9DBE4565D87B4F30A8AA3425 /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC52E9A1931E1B4001B69E8 /* NZHArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHArticleViewController.h; sourceTree = "<group>"; };
+		BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHArticleViewController.m; sourceTree = "<group>"; };
+		BEC52E9D1931E1C7001B69E8 /* NZHCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHCategoryViewController.h; sourceTree = "<group>"; };
+		BEC52E9E1931E1C7001B69E8 /* NZHCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHCategoryViewController.m; sourceTree = "<group>"; };
+		BEC52EA01931E5D0001B69E8 /* NZHArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHArticle.h; sourceTree = "<group>"; };
+		BEC52EA11931E5D0001B69E8 /* NZHArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHArticle.m; sourceTree = "<group>"; };
+		BEC52EA31931FB3D001B69E8 /* NZHArticleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHArticleHeaderView.h; sourceTree = "<group>"; };
+		BEC52EA41931FB3D001B69E8 /* NZHArticleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHArticleHeaderView.m; sourceTree = "<group>"; };
+		C6B7288B277C4B0AAF7173FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D928AB5DAF3145F2AF909CCF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DE72E0B7AEAD4140ACF213AD /* Pods-unit_tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.xcconfig"; path = "Pods/Pods-unit_tests.xcconfig"; sourceTree = "<group>"; };
 		F05997700B1C4D6ABDA7B097 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		F161B0FCDBA142398270FD07 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EFCAEB79D52440185326171 /* Foundation.framework in Frameworks */,
+				8E39F4BA39B946E1BE0B685A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +181,7 @@
 				F82DED2182094C35B56DE0F9 /* Frameworks */,
 				9A03BA73FAF94EA8A40E1E5F /* Products */,
 				DE72E0B7AEAD4140ACF213AD /* Pods-unit_tests.xcconfig */,
+				F161B0FCDBA142398270FD07 /* Pods.xcconfig */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -186,6 +203,8 @@
 		B04AEC03DF524CF6A4BB8EBC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BEC52EA01931E5D0001B69E8 /* NZHArticle.h */,
+				BEC52EA11931E5D0001B69E8 /* NZHArticle.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +219,8 @@
 		C2468E2163E24CCA8B446937 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BEC52EA31931FB3D001B69E8 /* NZHArticleHeaderView.h */,
+				BEC52EA41931FB3D001B69E8 /* NZHArticleHeaderView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +244,10 @@
 		E020F23C610D436F86A990D4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BEC52E9A1931E1B4001B69E8 /* NZHArticleViewController.h */,
+				BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */,
+				BEC52E9D1931E1C7001B69E8 /* NZHCategoryViewController.h */,
+				BEC52E9E1931E1C7001B69E8 /* NZHCategoryViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +257,7 @@
 			children = (
 				176130F90FA24967AEDF8C71 /* iOS */,
 				9DBE4565D87B4F30A8AA3425 /* libPods-unit_tests.a */,
+				C6B7288B277C4B0AAF7173FB /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -263,10 +289,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 556F7F1C21FC4D40BDBB2841 /* Build configuration list for PBXNativeTarget "NZ Herald 2" */;
 			buildPhases = (
+				EF8BB05D5FC244E386569CBC /* Check Pods Manifest.lock */,
 				678092033E3E4B3D94364AF2 /* Sources */,
 				23DA283B8D9A4973B8606D18 /* Frameworks */,
 				54611E8432C6457D88AEAC92 /* Resources */,
 				17A2F58B3D664FBDB30E24FD /* Warn for TODO and FIXME comments */,
+				598EF656FC91496F8F844F76 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -353,6 +381,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		598EF656FC91496F8F844F76 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		992AC358CEC04708B8536290 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,6 +409,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-unit_tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF8BB05D5FC244E386569CBC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -382,8 +440,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC52EA21931E5D0001B69E8 /* NZHArticle.m in Sources */,
+				BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */,
 				8E4FD7CCA9704ABEA832FB3A /* NZHAppDelegate.m in Sources */,
 				9EC92E7117CB4567AFC77BDF /* main.m in Sources */,
+				BEC52E9F1931E1C7001B69E8 /* NZHCategoryViewController.m in Sources */,
+				BEC52EA51931FB3D001B69E8 /* NZHArticleHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +530,7 @@
 		};
 		5F489F1D51B146FAAE8160EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F161B0FCDBA142398270FD07 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
@@ -570,6 +633,7 @@
 		};
 		DF59FE60767648E7BA26BB3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F161B0FCDBA142398270FD07 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;

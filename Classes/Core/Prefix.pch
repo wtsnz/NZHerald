@@ -7,4 +7,11 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
+
+#import <ViewUtils.h>
+#import "DebugLog.h"
+#import <AFNetworking.h>
+#import <Mantle.h>
+
 #endif
+
