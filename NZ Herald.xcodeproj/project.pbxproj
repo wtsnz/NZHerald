@@ -38,7 +38,7 @@
 		3E1EC4A96CA640978BF68990 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		458EB47626964ADF9B677616 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69641A2ECE70486DBCD5875E /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		78209622F28C4781864A98AC /* NZ Herald 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NZ Herald 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78209622F28C4781864A98AC /* NZ Herald.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NZ Herald.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C649F39D3F2483DBA1B84B6 /* NZHAppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NZHAppDelegate.h; sourceTree = "<group>"; };
 		9DBE4565D87B4F30A8AA3425 /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC52E9A1931E1B4001B69E8 /* NZHArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHArticleViewController.h; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		9A03BA73FAF94EA8A40E1E5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78209622F28C4781864A98AC /* NZ Herald 2.app */,
+				78209622F28C4781864A98AC /* NZ Herald.app */,
 				458EB47626964ADF9B677616 /* UnitTests.xctest */,
 			);
 			name = Products;
@@ -285,9 +285,9 @@
 			productReference = 458EB47626964ADF9B677616 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		97D0DB7C563349239B27BD9E /* NZ Herald 2 */ = {
+		97D0DB7C563349239B27BD9E /* NZ Herald */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 556F7F1C21FC4D40BDBB2841 /* Build configuration list for PBXNativeTarget "NZ Herald 2" */;
+			buildConfigurationList = 556F7F1C21FC4D40BDBB2841 /* Build configuration list for PBXNativeTarget "NZ Herald" */;
 			buildPhases = (
 				EF8BB05D5FC244E386569CBC /* Check Pods Manifest.lock */,
 				678092033E3E4B3D94364AF2 /* Sources */,
@@ -300,9 +300,9 @@
 			);
 			dependencies = (
 			);
-			name = "NZ Herald 2";
+			name = "NZ Herald";
 			productName = "NZ Herald 2";
-			productReference = 78209622F28C4781864A98AC /* NZ Herald 2.app */;
+			productReference = 78209622F28C4781864A98AC /* NZ Herald.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -315,7 +315,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = WTSNZ;
 			};
-			buildConfigurationList = 7380B6C3FC514CA7A76C127C /* Build configuration list for PBXProject "NZ Herald 2" */;
+			buildConfigurationList = 7380B6C3FC514CA7A76C127C /* Build configuration list for PBXProject "NZ Herald" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -327,7 +327,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97D0DB7C563349239B27BD9E /* NZ Herald 2 */,
+				97D0DB7C563349239B27BD9E /* NZ Herald */,
 				755DA5416A364F43A5B46F36 /* UnitTests */,
 			);
 		};
@@ -454,7 +454,7 @@
 /* Begin PBXTargetDependency section */
 		3692C2F7CE1D4361BF602B40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 97D0DB7C563349239B27BD9E /* NZ Herald 2 */;
+			target = 97D0DB7C563349239B27BD9E /* NZ Herald */;
 			targetProxy = E2D7CF17989E4C11B1647308 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -550,7 +550,7 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "NZ Herald";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -651,7 +651,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "NZ Herald";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 			};
@@ -660,7 +660,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		556F7F1C21FC4D40BDBB2841 /* Build configuration list for PBXNativeTarget "NZ Herald 2" */ = {
+		556F7F1C21FC4D40BDBB2841 /* Build configuration list for PBXNativeTarget "NZ Herald" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F489F1D51B146FAAE8160EE /* Release */,
@@ -678,7 +678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7380B6C3FC514CA7A76C127C /* Build configuration list for PBXProject "NZ Herald 2" */ = {
+		7380B6C3FC514CA7A76C127C /* Build configuration list for PBXProject "NZ Herald" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B51BF3695B2432FA2DCCD16 /* Debug */,

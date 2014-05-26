@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97D0DB7C563349239B27BD9E"
-               BuildableName = "NZ Herald 2.app"
-               BlueprintName = "NZ Herald 2"
-               ReferencedContainer = "container:NZ Herald 2.xcodeproj">
+               BuildableName = "NZ Herald.app"
+               BlueprintName = "NZ Herald"
+               ReferencedContainer = "container:NZ Herald.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "755DA5416A364F43A5B46F36"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:NZ Herald 2.xcodeproj">
+               ReferencedContainer = "container:NZ Herald.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97D0DB7C563349239B27BD9E"
-            BuildableName = "NZ Herald 2.app"
-            BlueprintName = "NZ Herald 2"
-            ReferencedContainer = "container:NZ Herald 2.xcodeproj">
+            BuildableName = "NZ Herald.app"
+            BlueprintName = "NZ Herald"
+            ReferencedContainer = "container:NZ Herald.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97D0DB7C563349239B27BD9E"
-            BuildableName = "NZ Herald 2.app"
-            BlueprintName = "NZ Herald 2"
-            ReferencedContainer = "container:NZ Herald 2.xcodeproj">
+            BuildableName = "NZ Herald.app"
+            BlueprintName = "NZ Herald"
+            ReferencedContainer = "container:NZ Herald.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97D0DB7C563349239B27BD9E"
-            BuildableName = "NZ Herald 2.app"
-            BlueprintName = "NZ Herald 2"
-            ReferencedContainer = "container:NZ Herald 2.xcodeproj">
+            BuildableName = "NZ Herald.app"
+            BlueprintName = "NZ Herald"
+            ReferencedContainer = "container:NZ Herald.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
