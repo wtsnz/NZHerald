@@ -16,6 +16,7 @@
 		BE718E2919348CF2004C6647 /* NZHClassification.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2819348CF2004C6647 /* NZHClassification.m */; };
 		BE718E2C19348D96004C6647 /* NZHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2B19348D96004C6647 /* NZHAPIClient.m */; };
 		BE718E2F193497C6004C6647 /* NZHIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2E193497C6004C6647 /* NZHIndexViewController.m */; };
+		BE718E32193498D8004C6647 /* NZHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E31193498D8004C6647 /* NZHRootViewController.m */; };
 		BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */; };
 		BEC52E9F1931E1C7001B69E8 /* NZHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52E9E1931E1C7001B69E8 /* NZHCategoryViewController.m */; };
 		BEC52EA21931E5D0001B69E8 /* NZHArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52EA11931E5D0001B69E8 /* NZHArticle.m */; };
@@ -50,6 +51,8 @@
 		BE718E2B19348D96004C6647 /* NZHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHAPIClient.m; sourceTree = "<group>"; };
 		BE718E2D193497C6004C6647 /* NZHIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHIndexViewController.h; sourceTree = "<group>"; };
 		BE718E2E193497C6004C6647 /* NZHIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHIndexViewController.m; sourceTree = "<group>"; };
+		BE718E30193498D8004C6647 /* NZHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHRootViewController.h; sourceTree = "<group>"; };
+		BE718E31193498D8004C6647 /* NZHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHRootViewController.m; sourceTree = "<group>"; };
 		BEC52E9A1931E1B4001B69E8 /* NZHArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHArticleViewController.h; sourceTree = "<group>"; };
 		BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHArticleViewController.m; sourceTree = "<group>"; };
 		BEC52E9D1931E1C7001B69E8 /* NZHCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHCategoryViewController.h; sourceTree = "<group>"; };
@@ -257,12 +260,14 @@
 		E020F23C610D436F86A990D4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BEC52E9A1931E1B4001B69E8 /* NZHArticleViewController.h */,
-				BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */,
-				BEC52E9D1931E1C7001B69E8 /* NZHCategoryViewController.h */,
-				BEC52E9E1931E1C7001B69E8 /* NZHCategoryViewController.m */,
+				BE718E30193498D8004C6647 /* NZHRootViewController.h */,
+				BE718E31193498D8004C6647 /* NZHRootViewController.m */,
 				BE718E2D193497C6004C6647 /* NZHIndexViewController.h */,
 				BE718E2E193497C6004C6647 /* NZHIndexViewController.m */,
+				BEC52E9D1931E1C7001B69E8 /* NZHCategoryViewController.h */,
+				BEC52E9E1931E1C7001B69E8 /* NZHCategoryViewController.m */,
+				BEC52E9A1931E1B4001B69E8 /* NZHArticleViewController.h */,
+				BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				8E4FD7CCA9704ABEA832FB3A /* NZHAppDelegate.m in Sources */,
 				BE718E2F193497C6004C6647 /* NZHIndexViewController.m in Sources */,
 				9EC92E7117CB4567AFC77BDF /* main.m in Sources */,
+				BE718E32193498D8004C6647 /* NZHRootViewController.m in Sources */,
 				BEC52E9F1931E1C7001B69E8 /* NZHCategoryViewController.m in Sources */,
 				BEC52EA51931FB3D001B69E8 /* NZHArticleHeaderView.m in Sources */,
 			);
