@@ -34,6 +34,8 @@
         requestOperation.responseSerializer = [AFJSONResponseSerializer serializer];
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             
+            DLog(@"%@", [responseObject class]);
+            
             NSArray *articles = [MTLJSONAdapter modelsOfClass:NZHArticle.class fromJSONArray:responseObject error:nil];
 
             self.articles = articles;

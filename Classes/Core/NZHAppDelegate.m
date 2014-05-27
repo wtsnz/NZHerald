@@ -9,6 +9,8 @@
 #import "NZHAppDelegate.h"
 #import "DebugLog.h"
 
+#import "NZHAPIClient.h"
+
 #import "NZHCategoryViewController.h"
 
 @implementation NZHAppDelegate
