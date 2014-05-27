@@ -64,15 +64,27 @@
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 6;
     
-    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:[self.article.content dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
-    
-    NSRange textRange = NSMakeRange(0, [content length]);
-    [content addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:textRange];
-    [content addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Georgia" size:18] range:textRange];
-    [content addAttribute:NSParagraphStyleAttributeName value:style range:textRange];
-    
-    self.contentLabel.attributedText = content;
-    
+    // Quick way to test if this improves perfomance
+    self.contentLabel.alpha = 0.0f;
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        
+        NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:[self.article.content dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+        
+        NSRange textRange = NSMakeRange(0, [content length]);
+        [content addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:textRange];
+        [content addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Georgia" size:18] range:textRange];
+        [content addAttribute:NSParagraphStyleAttributeName value:style range:textRange];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            //Run UI Updates
+            self.contentLabel.attributedText = content;
+            
+            [UIView animateWithDuration:0.1 animations:^{
+                self.contentLabel.alpha = 1.0f;
+            }];
+        });
+    });
+
 }
 
 - (void)viewDidLayoutSubviews

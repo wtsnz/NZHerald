@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class NZHCategoryViewController;
+
+@protocol NZHCategoryViewControllerDelegate <NSObject>
+
+- (void)categoryViewControllerRequestsDismissal:(NZHCategoryViewController *)categoryViewController;
+
+@end
+
 @interface NZHCategoryViewController : UIPageViewController
+
+@property (weak, nonatomic) id <NZHCategoryViewControllerDelegate> categoryViewControllerDelegate;
 
 @end

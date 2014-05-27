@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class NZHIndexViewController;
+@class NZHClassification;
+
+@protocol NZHIndexViewControllerDelegate <NSObject>
+
+- (void)indexViewController:(NZHIndexViewController *)indexViewController didSelectClassification:(NZHClassification *)classification;
+
+@end
+
 @interface NZHIndexViewController : UIViewController
+
+@property (weak, nonatomic) id <NZHIndexViewControllerDelegate> delegate;
 
 @end

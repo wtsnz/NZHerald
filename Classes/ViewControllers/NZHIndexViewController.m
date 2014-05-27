@@ -8,6 +8,8 @@
 
 #import "NZHIndexViewController.h"
 
+#import "NZHClassification.h"
+
 @interface NZHIndexViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -15,7 +17,6 @@
 @end
 
 @implementation NZHIndexViewController
-
 
 - (void)viewDidLoad
 {
@@ -58,6 +59,14 @@
 }
 
 #pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Show view controller from rootview
+    if ([self.delegate respondsToSelector:@selector(indexViewController:didSelectClassification:)]) {
+        [self.delegate indexViewController:self didSelectClassification:[NZHClassification new]];
+    }
+}
 
 #pragma mark - Getters
 

@@ -64,10 +64,20 @@
     
     // Show a loading thing
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapClose)];
+    
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 70)];
     self.headerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3f];
+    [self.headerView addGestureRecognizer:tapGesture];
     [self.view addSubview:self.headerView];
     
+}
+
+- (void)didTapClose
+{
+    if ([self.categoryViewControllerDelegate respondsToSelector:@selector(categoryViewControllerRequestsDismissal:)]) {
+        [self.categoryViewControllerDelegate categoryViewControllerRequestsDismissal:self];
+    }
 }
 
 - (BOOL)prefersStatusBarHidden
