@@ -461,15 +461,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEC52EA21931E5D0001B69E8 /* NZHArticle.m in Sources */,
+				BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */,
+				BEC52EA51931FB3D001B69E8 /* NZHArticleHeaderView.m in Sources */,
 				BE718E2919348CF2004C6647 /* NZHClassification.m in Sources */,
 				BE718E2C19348D96004C6647 /* NZHAPIClient.m in Sources */,
-				BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */,
 				8E4FD7CCA9704ABEA832FB3A /* NZHAppDelegate.m in Sources */,
 				BE718E2F193497C6004C6647 /* NZHIndexViewController.m in Sources */,
-				9EC92E7117CB4567AFC77BDF /* main.m in Sources */,
 				BE718E32193498D8004C6647 /* NZHRootViewController.m in Sources */,
+				9EC92E7117CB4567AFC77BDF /* main.m in Sources */,
 				BEC52E9F1931E1C7001B69E8 /* NZHCategoryViewController.m in Sources */,
-				BEC52EA51931FB3D001B69E8 /* NZHArticleHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

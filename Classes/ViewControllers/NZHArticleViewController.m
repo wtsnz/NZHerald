@@ -64,7 +64,9 @@
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 6;
     
-    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:[self.article.content dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+    NSDictionary *documentAttributes = @{NSViewSizeDocumentAttribute: [NSValue valueWithCGSize:CGSizeMake(320, 0)]};
+    
+    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:[self.article.content dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:&documentAttributes error:nil];
     
     NSRange textRange = NSMakeRange(0, [content length]);
     [content addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:textRange];

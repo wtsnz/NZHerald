@@ -9,8 +9,7 @@
 #import "NZHRootViewController.h"
 
 #import "NZHIndexViewController.h"
-
-@class NZHCategoryViewController;
+#import "NZHCategoryViewController.h"
 
 @interface NZHRootViewController ()
 
@@ -24,13 +23,23 @@
 {
     [super viewDidLoad];
     
-    NZHIndexViewController *indexViewController = [[NZHIndexViewController alloc] init];
-    [self addChildViewController:indexViewController];
-    indexViewController.view.frame = self.view.frame;
-    [self.view addSubview:indexViewController.view];
-    [indexViewController didMoveToParentViewController:self];
+    if (NO) {
+        NZHIndexViewController *indexViewController = [[NZHIndexViewController alloc] init];
+        [self addChildViewController:indexViewController];
+        indexViewController.view.frame = self.view.frame;
+        [self.view addSubview:indexViewController.view];
+        [indexViewController didMoveToParentViewController:self];
+        self.indexViewController = indexViewController;
+        
+    } else {
+        NZHCategoryViewController *indexViewController = [[NZHCategoryViewController alloc] init];
+        [self addChildViewController:indexViewController];
+        indexViewController.view.frame = self.view.frame;
+        [self.view addSubview:indexViewController.view];
+        [indexViewController didMoveToParentViewController:self];
+    }
     
-    self.indexViewController = indexViewController;
+    
     
 }
 
