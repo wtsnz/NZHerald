@@ -17,6 +17,8 @@
 		BE718E2C19348D96004C6647 /* NZHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2B19348D96004C6647 /* NZHAPIClient.m */; };
 		BE718E2F193497C6004C6647 /* NZHIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2E193497C6004C6647 /* NZHIndexViewController.m */; };
 		BE718E32193498D8004C6647 /* NZHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E31193498D8004C6647 /* NZHRootViewController.m */; };
+		BE718E361934B01B004C6647 /* NZHInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E351934B01B004C6647 /* NZHInteractiveTransition.m */; };
+		BE718E391934B47D004C6647 /* NZHIndexHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E381934B47D004C6647 /* NZHIndexHeaderView.m */; };
 		BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */; };
 		BEC52E9F1931E1C7001B69E8 /* NZHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52E9E1931E1C7001B69E8 /* NZHCategoryViewController.m */; };
 		BEC52EA21931E5D0001B69E8 /* NZHArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52EA11931E5D0001B69E8 /* NZHArticle.m */; };
@@ -53,6 +55,10 @@
 		BE718E2E193497C6004C6647 /* NZHIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHIndexViewController.m; sourceTree = "<group>"; };
 		BE718E30193498D8004C6647 /* NZHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHRootViewController.h; sourceTree = "<group>"; };
 		BE718E31193498D8004C6647 /* NZHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHRootViewController.m; sourceTree = "<group>"; };
+		BE718E341934B01B004C6647 /* NZHInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHInteractiveTransition.h; sourceTree = "<group>"; };
+		BE718E351934B01B004C6647 /* NZHInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHInteractiveTransition.m; sourceTree = "<group>"; };
+		BE718E371934B47D004C6647 /* NZHIndexHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHIndexHeaderView.h; sourceTree = "<group>"; };
+		BE718E381934B47D004C6647 /* NZHIndexHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHIndexHeaderView.m; sourceTree = "<group>"; };
 		BEC52E9A1931E1B4001B69E8 /* NZHArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHArticleViewController.h; sourceTree = "<group>"; };
 		BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHArticleViewController.m; sourceTree = "<group>"; };
 		BEC52E9D1931E1C7001B69E8 /* NZHCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHCategoryViewController.h; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 		46DDA2D2C6E843C0AE50AFD4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BE718E331934AFF6004C6647 /* AnimationControllers */,
 				90C3249B04694BF5844AB15E /* ThirdParty */,
 				2D27ECEA63CB4AEF9BD9C692 /* Categories */,
 				CC71EF66B9934DB0A48C959B /* Constants */,
@@ -232,11 +239,22 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		BE718E331934AFF6004C6647 /* AnimationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE718E341934B01B004C6647 /* NZHInteractiveTransition.h */,
+				BE718E351934B01B004C6647 /* NZHInteractiveTransition.m */,
+			);
+			path = AnimationControllers;
+			sourceTree = "<group>";
+		};
 		C2468E2163E24CCA8B446937 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				BEC52EA31931FB3D001B69E8 /* NZHArticleHeaderView.h */,
 				BEC52EA41931FB3D001B69E8 /* NZHArticleHeaderView.m */,
+				BE718E371934B47D004C6647 /* NZHIndexHeaderView.h */,
+				BE718E381934B47D004C6647 /* NZHIndexHeaderView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +481,8 @@
 				BEC52EA21931E5D0001B69E8 /* NZHArticle.m in Sources */,
 				BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */,
 				BEC52EA51931FB3D001B69E8 /* NZHArticleHeaderView.m in Sources */,
+				BE718E391934B47D004C6647 /* NZHIndexHeaderView.m in Sources */,
+				BE718E361934B01B004C6647 /* NZHInteractiveTransition.m in Sources */,
 				BE718E2919348CF2004C6647 /* NZHClassification.m in Sources */,
 				BE718E2C19348D96004C6647 /* NZHAPIClient.m in Sources */,
 				8E4FD7CCA9704ABEA832FB3A /* NZHAppDelegate.m in Sources */,

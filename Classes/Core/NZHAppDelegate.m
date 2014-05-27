@@ -10,6 +10,7 @@
 #import "DebugLog.h"
 
 #import "NZHRootViewController.h"
+#import "NZHIndexViewController.h"
 
 @implementation NZHAppDelegate
 
@@ -17,7 +18,7 @@
 {
     // Configure Window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[NZHRootViewController alloc] init];
+    self.window.rootViewController = [[NZHIndexViewController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     

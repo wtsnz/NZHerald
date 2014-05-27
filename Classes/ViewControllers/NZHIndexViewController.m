@@ -9,10 +9,15 @@
 #import "NZHIndexViewController.h"
 
 #import "NZHClassification.h"
+#import "NZHCategoryViewController.h"
 
-@interface NZHIndexViewController () <UITableViewDataSource, UITableViewDelegate>
+#import "NZHInteractiveTransition.h"
+
+@interface NZHIndexViewController () <UITableViewDataSource, UITableViewDelegate, NZHCategoryViewControllerDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
+
+@property (strong, nonatomic) NZHInteractiveTransition *interactiveTransitionController;
 
 @end
 
@@ -21,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.interactiveTransitionController = [NZHInteractiveTransition new];
     
     [self.view addSubview:self.tableView];
 }
@@ -62,10 +69,44 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NZHCategoryViewController *categoryViewController = [[NZHCategoryViewController alloc] init];
+    categoryViewController.categoryViewControllerDelegate = self;
+    categoryViewController.transitioningDelegate = self.interactiveTransitionController;
+    categoryViewController.modalPresentationStyle = UIModalPresentationCustom;
+    [self presentViewController:categoryViewController animated:YES completion:^{
+        self.interactiveTransitionController.reversed = YES;
+    }];
+    
     // Show view controller from rootview
     if ([self.delegate respondsToSelector:@selector(indexViewController:didSelectClassification:)]) {
-        [self.delegate indexViewController:self didSelectClassification:[NZHClassification new]];
+        //[self.delegate indexViewController:self didSelectClassification:[NZHClassification new]];
     }
+}
+
+#pragma mark - NZHCategoryViewControllerDelegate
+
+- (void)categoryViewControllerRequestsDismissal:(NZHCategoryViewController *)categoryViewController
+{
+    [categoryViewController dismissViewControllerAnimated:YES completion:^{
+        self.interactiveTransitionController.reversed = NO;
+    }];
+    
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    NZHInteractiveTransition *animationController = [NZHInteractiveTransition new];
+    return animationController;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    NZHInteractiveTransition *animationController = [NZHInteractiveTransition new];
+    animationController.reversed = YES;
+    return animationController;
 }
 
 #pragma mark - Getters
