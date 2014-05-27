@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) NZHInteractiveTransition *interactiveTransitionController;
 
+@property (weak, nonatomic) UITableViewCell *lastSelectedTableViewCell;
+
 @end
 
 @implementation NZHIndexViewController
@@ -60,7 +62,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"Category";
+    cell.textLabel.text = [NSString stringWithFormat:@"Category: %@", @(indexPath.row)];
     
     return cell;
 }
@@ -69,6 +71,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.lastSelectedTableViewCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    self.interactiveTransitionController.sourceTableViewCell = self.lastSelectedTableViewCell;
+    
     
     NZHCategoryViewController *categoryViewController = [[NZHCategoryViewController alloc] init];
     categoryViewController.categoryViewControllerDelegate = self;

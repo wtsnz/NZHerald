@@ -77,7 +77,12 @@
     UIView *fromView = fromVC.view;
     UIView *toView = toVC.view;
     UIView *containerView = [transitionContext containerView];
+    
     containerView.backgroundColor = [UIColor blackColor];
+    
+    [containerView addSubview:toView];
+    [containerView sendSubviewToBack:toView];
+    
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
@@ -112,17 +117,55 @@
     // Present the View Controller
     else {
         
-        // Position the view offscreen (Be sure to add to view before setting frame)
-        [containerView insertSubview:toView belowSubview:fromView];
-        toView.frame = initialFrame;
         
-        [UIView animateWithDuration:0.7 delay:0.0f usingSpringWithDamping:0.85f initialSpringVelocity:0.3f options:0 animations:^{
+        toView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
+        
+        // Find Frames
+        CGRect tableViewCellFrame = [containerView convertRect:self.sourceTableViewCell.frame fromView:self.sourceTableViewCell.superview];
+        CGRect aboveCellFrame = CGRectMake(0, 0, tableViewCellFrame.size.width, tableViewCellFrame.origin.y);
+        CGRect belowCellFrame = CGRectMake(0, tableViewCellFrame.origin.y + tableViewCellFrame.size.height, tableViewCellFrame.size.width, initialFrame.size.height - tableViewCellFrame.origin.y + tableViewCellFrame.size.height);
+        
+        // Create snapshots
+        UIView *cellSnapshot = [self.sourceTableViewCell snapshotViewAfterScreenUpdates:NO];
+        UIView *aboveCellSnapshot = [fromView resizableSnapshotViewFromRect:aboveCellFrame afterScreenUpdates:NO withCapInsets:UIEdgeInsetsZero];
+        UIView *belowCellSnapshot = [fromView resizableSnapshotViewFromRect:belowCellFrame afterScreenUpdates:NO withCapInsets:UIEdgeInsetsZero];
+    
+        // Set frames
+        cellSnapshot.frame = tableViewCellFrame;
+        belowCellSnapshot.top = cellSnapshot.bottom;
+        
+        // Add Snapshots
+        [containerView addSubview:aboveCellSnapshot];
+        [containerView addSubview:cellSnapshot];
+        [containerView addSubview:belowCellSnapshot];
+        
+        [fromView removeFromSuperview];
+        
+        //toView.frame = initialFrame;
+        
+        [UIView animateWithDuration:0.8 delay:0.0f usingSpringWithDamping:0.85f initialSpringVelocity:0.3f options:0 animations:^{
             //toView.frame = initialFrame;
-            fromView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
+            
+            toView.layer.affineTransform = CGAffineTransformMakeScale(1.0f, 1.0f);
+            
+            fromView.layer.affineTransform = CGAffineTransformMakeScale(1.04f, 1.04f);
             fromView.top = 20.0f;
             fromView.alpha = 0.0f;
+            
+            aboveCellSnapshot.bottom = 0.0f;
+            
+            cellSnapshot.top = 0.0f;
+            
+            belowCellSnapshot.top = initialFrame.size.height;
+            
         } completion:^(BOOL finished) {
+            
+            [aboveCellSnapshot removeFromSuperview];
+            [cellSnapshot removeFromSuperview];
+            [belowCellSnapshot removeFromSuperview];
+            
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            
         }];
         
     }

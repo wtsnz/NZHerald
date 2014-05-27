@@ -10,6 +10,8 @@
 
 @interface NZHInteractiveTransition : UIPercentDrivenInteractiveTransition <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 
+@property (weak, nonatomic) UITableViewCell *sourceTableViewCell;
+
 @property (nonatomic) BOOL presenting;
 @property (nonatomic) BOOL reversed;
 
