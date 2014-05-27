@@ -19,8 +19,6 @@
 
 @property (strong, nonatomic) UILabel *contentLabel;
 
-
-
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 @property (strong, nonatomic) CALayer *blackBackground;
@@ -68,9 +66,10 @@
     
     NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithData:[self.article.content dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
     
-    [content addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, [content length])];
-    [content addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Georgia" size:18] range:NSMakeRange(0, [content length])];
-    [content addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [content length])];
+    NSRange textRange = NSMakeRange(0, [content length]);
+    [content addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:textRange];
+    [content addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Georgia" size:18] range:textRange];
+    [content addAttribute:NSParagraphStyleAttributeName value:style range:textRange];
     
     self.contentLabel.attributedText = content;
     
@@ -85,10 +84,8 @@
     
     self.blackBackground.frame = CGRectMake(0, -500, self.view.width, self.view.height + 500);
     
-
     self.articleHeaderView.width = self.view.width;
     self.articleHeaderView.height = self.view.height;
-    
     
     self.contentLabel.width = self.view.width - 30;
     self.contentLabel.left = 15;

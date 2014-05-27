@@ -16,6 +16,8 @@
 
 @implementation NZHArticle
 
+static NSDateFormatter *kDateFormatter = nil;
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
@@ -30,19 +32,14 @@
 + (NSValueTransformer *)publishedDateJSONTransformer
 {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
-        NSDate *date = [self.dateFormatter dateFromString:str];
-        NSLog(@"%@", date);
-        return date;
+        return [self.dateFormatter dateFromString:str];
     } reverseBlock:^(NSDate *date) {
         return [self.dateFormatter stringFromDate:date];
     }];
 }
 
-static NSDateFormatter *kDateFormatter;
 + (NSDateFormatter *)dateFormatter
 {
-    
-    
     if (kDateFormatter == nil) {
         kDateFormatter = [[NSDateFormatter alloc] init];
         [kDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss'.'S"];
