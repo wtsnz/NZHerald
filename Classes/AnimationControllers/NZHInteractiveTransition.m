@@ -92,24 +92,66 @@
     
     // Dissmiss the View Controller
     if (self.reversed) {
-        [containerView addSubview:toView];
-        [containerView sendSubviewToBack:toView];
         
-        toView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
-        toView.top = 20.0f;
+        //[containerView addSubview:toView];
+        
+        //toView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
+        toView.alpha = 1.0f;
+        
+        // Find Frames
+        CGRect tableViewCellFrame = [containerView convertRect:self.sourceTableViewCell.frame fromView:self.sourceTableViewCell.superview];
+        CGRect aboveCellFrame = CGRectMake(0, 0, tableViewCellFrame.size.width, tableViewCellFrame.origin.y);
+        CGRect belowCellFrame = CGRectMake(0, tableViewCellFrame.origin.y + tableViewCellFrame.size.height, tableViewCellFrame.size.width, initialFrame.size.height - tableViewCellFrame.origin.y + tableViewCellFrame.size.height);
+        
+        // Create snapshots
+        UIView *cellSnapshot = [self.sourceTableViewCell snapshotViewAfterScreenUpdates:YES];
+        UIView *aboveCellSnapshot = [toView resizableSnapshotViewFromRect:aboveCellFrame afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
+        UIView *belowCellSnapshot = [toView resizableSnapshotViewFromRect:belowCellFrame afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
+        
+        toView.alpha = 0.0f;
+        
+        // Set frames
+        aboveCellSnapshot.bottom = 0;
+        cellSnapshot.top = 0.0f;
+        belowCellSnapshot.top = containerView.frame.size.height;
+        
+        // Add Snapshots
+        [containerView addSubview:aboveCellSnapshot];
+        [containerView addSubview:cellSnapshot];
+        [containerView addSubview:belowCellSnapshot];
+        
+        //[fromView removeFromSuperview];
+        
+        
+        [containerView addSubview:toView];
+        [containerView bringSubviewToFront:toView];
+        
+        //toView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
+        //toView.top = 20.0f;
         
         // Animate out
         [UIView animateWithDuration:duration animations: ^{
-            toView.alpha = 1.0f;
-            toView.layer.affineTransform = CGAffineTransformMakeScale(1.0f, 1.0f);
-            toView.top = 0.0f;
             
-            fromView.frame = offscreenRect;
-            // Add a little right rotation to the fall
-            NSInteger r = (NSInteger)(arc4random_uniform(8) + 4);
-            fromView.layer.transform = CATransform3DMakeRotation((float)(r * (M_PI / 180.0f)), 0, 0, 1);
+            cellSnapshot.frame = tableViewCellFrame;
+            aboveCellSnapshot.bottom = cellSnapshot.top;
+            belowCellSnapshot.top = cellSnapshot.bottom;
+            
+            
+            
+            fromView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
+            
+            //fromView.frame = offscreenRect;
+
         } completion: ^(BOOL finished) {
+            
+            toView.alpha = 1.0f;
+            
             [fromView removeFromSuperview];
+            
+            [aboveCellSnapshot removeFromSuperview];
+            [cellSnapshot removeFromSuperview];
+            [belowCellSnapshot removeFromSuperview];
+            
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
         
