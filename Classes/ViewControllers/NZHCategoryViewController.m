@@ -8,8 +8,12 @@
 
 #import "NZHCategoryViewController.h"
 
+#import "NZHClassification.h"
+
 #import "NZHArticleViewController.h"
 #import "NZHArticle.h"
+
+#import "NZHAPIClient.h"
 
 @interface NZHCategoryViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
@@ -20,39 +24,35 @@
 
 @implementation NZHCategoryViewController
 
-- (id)init
+- (id)initWithClassification:(NZHClassification *)classification
 {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
-        
-        
-        NSURL *imageUrl = [NSURL URLWithString:@"http://rss.nzherald.co.nz/touch/?version=2.2&method=stories.getLatest&cId=698&maxrows=35&fullContent=1&appID=41&apiKey=41:1401105000:1631861A2A8F57DB49E56A6DBD37D06B40F58501"];
-        //imageUrl = [NSURL URLWithString:@"http://rss.nzherald.co.nz/touch/?version=2.2&method=stories.getLatest&cId=1&maxrows=35&fullContent=1&appID=41&apiKey=41:1401105000:1631861A2A8F57DB49E56A6DBD37D06B40F58501"];
-        
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageUrl];
-        
-        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
-        requestOperation.responseSerializer = [AFJSONResponseSerializer serializer];
-        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            DLog(@"%@", [responseObject class]);
-            
-            NSArray *articles = [MTLJSONAdapter modelsOfClass:NZHArticle.class fromJSONArray:responseObject error:nil];
-
-            self.articles = articles;
-            
-            NZHArticleViewController *articleViewController = [self viewControllerAtIndex:0];
-            NSArray *viewControllers = @[articleViewController];
-            [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Image error: %@", error);
-        }];
-        
-        [requestOperation start];
         
         self.delegate = self;
         self.dataSource = self;
         self.view.backgroundColor = [UIColor blackColor];
+        
+        DLog(@"Loading cID: %@", @(classification.classificationId));
+        
+        [[NZHAPIClient shared] fetchArticlesForClassificationId:classification.classificationId withCompletion:^(id JSON) {
+            
+            NSArray *articles = [MTLJSONAdapter modelsOfClass:NZHArticle.class fromJSONArray:JSON error:nil];
+            
+            if ([articles count]) {
+                self.articles = articles;
+                
+                NZHArticleViewController *articleViewController = [self viewControllerAtIndex:0];
+                NSArray *viewControllers = @[articleViewController];
+                [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+            } else {
+                DLog(@"Error Loading: No articles: %@", JSON);
+            }
+            
+            
+            
+        } onFailure:^{
+            NSLog(@"Error loading articles");
+        }];
         
     }
     return self;
@@ -71,6 +71,13 @@
     [self.headerView addGestureRecognizer:tapGesture];
     [self.view addSubview:self.headerView];
     
+    [self prefersStatusBarHidden];
+    
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (void)didTapClose
@@ -78,11 +85,6 @@
     if ([self.categoryViewControllerDelegate respondsToSelector:@selector(categoryViewControllerRequestsDismissal:)]) {
         [self.categoryViewControllerDelegate categoryViewControllerRequestsDismissal:self];
     }
-}
-
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 
 #pragma mark - UIPageViewControllerDataSource
@@ -125,6 +127,5 @@
     articleViewController.pageIndex = index;
     return articleViewController;
 }
-
 
 @end

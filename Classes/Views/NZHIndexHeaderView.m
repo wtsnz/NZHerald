@@ -8,6 +8,12 @@
 
 #import "NZHIndexHeaderView.h"
 
+@interface NZHIndexHeaderView ()
+
+@property (strong, nonatomic) UIImageView *imageView;
+
+@end
+
 @implementation NZHIndexHeaderView
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,17 +21,24 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        self.backgroundColor = [UIColor whiteColor];
+        
+        self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"New_Zealand_Herald_logo"]];
+        self.imageView.contentMode = UIViewContentModeCenter;
+        [self addSubview:self.imageView];
+        
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)layoutSubviews
 {
-    // Drawing code
+    [super layoutSubviews];
+    
+    self.imageView.width = self.width;
+    self.imageView.height = self.height;
+    
 }
-*/
 
 @end

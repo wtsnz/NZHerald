@@ -83,7 +83,6 @@
     [containerView addSubview:toView];
     [containerView sendSubviewToBack:toView];
     
-    
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
     CGRect initialFrame = [transitionContext initialFrameForViewController:fromVC];
@@ -93,9 +92,6 @@
     // Dissmiss the View Controller
     if (self.reversed) {
         
-        //[containerView addSubview:toView];
-        
-        //toView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
         toView.alpha = 1.0f;
         
         // Find Frames
@@ -120,14 +116,8 @@
         [containerView addSubview:cellSnapshot];
         [containerView addSubview:belowCellSnapshot];
         
-        //[fromView removeFromSuperview];
-        
-        
         [containerView addSubview:toView];
         [containerView bringSubviewToFront:toView];
-        
-        //toView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
-        //toView.top = 20.0f;
         
         // Animate out
         [UIView animateWithDuration:duration animations: ^{
@@ -136,12 +126,8 @@
             aboveCellSnapshot.bottom = cellSnapshot.top;
             belowCellSnapshot.top = cellSnapshot.bottom;
             
-            
-            
             fromView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
             
-            //fromView.frame = offscreenRect;
-
         } completion: ^(BOOL finished) {
             
             toView.alpha = 1.0f;
@@ -183,10 +169,7 @@
         
         [fromView removeFromSuperview];
         
-        //toView.frame = initialFrame;
-        
         [UIView animateWithDuration:0.8 delay:0.0f usingSpringWithDamping:0.85f initialSpringVelocity:0.3f options:0 animations:^{
-            //toView.frame = initialFrame;
             
             toView.layer.affineTransform = CGAffineTransformMakeScale(1.0f, 1.0f);
             
@@ -209,7 +192,6 @@
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             
         }];
-        
     }
 }
 

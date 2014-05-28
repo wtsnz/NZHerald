@@ -11,15 +11,22 @@
 #import "NZHClassification.h"
 #import "NZHCategoryViewController.h"
 
+#import "NZHIndexHeaderView.h"
+
+#import "NZHAPIClient.h"
+
 #import "NZHInteractiveTransition.h"
 
 @interface NZHIndexViewController () <UITableViewDataSource, UITableViewDelegate, NZHCategoryViewControllerDelegate>
 
+@property (strong, nonatomic) NZHIndexHeaderView *headerView;
 @property (strong, nonatomic) UITableView *tableView;
 
 @property (strong, nonatomic) NZHInteractiveTransition *interactiveTransitionController;
 
 @property (weak, nonatomic) UITableViewCell *lastSelectedTableViewCell;
+
+@property (strong, nonatomic) NSArray *classifications;
 
 @end
 
@@ -31,21 +38,44 @@
     
     self.interactiveTransitionController = [NZHInteractiveTransition new];
     
+    self.classifications = [NSArray array];
+    
     [self.view addSubview:self.tableView];
+    
+    self.headerView = [[NZHIndexHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 100)];
+    [self.view addSubview:self.headerView];
+    
+    [[NZHAPIClient shared] fetchClassificationsWithCompletion:^(id JSON) {
+        
+        self.classifications = [MTLJSONAdapter modelsOfClass:NZHClassification.class fromJSONArray:JSON error:nil];
+        
+        [self.tableView reloadData];
+        
+    } onFailure:^{
+        
+    }];
+
+    
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     
+    self.headerView.width = self.view.width;
+    self.headerView.height = 100;
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(self.headerView.height, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.headerView.height, 0, 0, 0);
     self.tableView.frame = self.view.bounds;
+
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.classifications count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -62,10 +92,18 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Category: %@", @(indexPath.row)];
+    NZHClassification *classification = self.classifications[indexPath.row];
+    
+    cell.textLabel.text = classification.name;
     
     return cell;
 }
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
 
 #pragma mark - UITableViewDelegate
 
@@ -74,11 +112,14 @@
     self.lastSelectedTableViewCell = [self.tableView cellForRowAtIndexPath:indexPath];
     self.interactiveTransitionController.sourceTableViewCell = self.lastSelectedTableViewCell;
     
+    NZHClassification *classification = self.classifications[indexPath.row];
     
-    NZHCategoryViewController *categoryViewController = [[NZHCategoryViewController alloc] init];
+    NZHCategoryViewController *categoryViewController = [[NZHCategoryViewController alloc] initWithClassification:classification];
     categoryViewController.categoryViewControllerDelegate = self;
     categoryViewController.transitioningDelegate = self.interactiveTransitionController;
     categoryViewController.modalPresentationStyle = UIModalPresentationCustom;
+    categoryViewController.modalPresentationCapturesStatusBarAppearance = YES;
+    
     [self presentViewController:categoryViewController animated:YES completion:^{
         self.interactiveTransitionController.reversed = YES;
     }];

@@ -12,7 +12,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{};
+    return @{@"classificationId": @"classificationID"};
 }
 
 @end

@@ -50,6 +50,18 @@ static NSString * const kAPIAppID = @"41";
     return [NSString stringWithFormat:@"&appID=%@&apikey=%@:%@:%@", kAPIAppID, kAPIAppID, @(timestamp), uuid];
 }
 
+- (void)fetchArticlesForClassificationId:(NSInteger)classificationId withCompletion:(void (^)(id JSON))completionBlock onFailure:(void (^)())failureBlock
+{
+    // Create the API URL
+    NSString *url = [kServerBaseURL stringByAppendingString:kAPIMethodArticles];
+    url = [url stringByAppendingString:[NSString stringWithFormat:@"&cId=%@&maxrows=35&fullContent=1", @(classificationId)]];
+    url = [url stringByAppendingString:[self authorizationString]];
+    
+    NSURL *requestURL = [NSURL URLWithString:url];
+    
+    [self fetchRequestWithURL:requestURL onCompletion:completionBlock onFailure:failureBlock];
+}
+
 - (void)fetchClassificationsWithCompletion:(void (^)(id JSON))completionBlock onFailure:(void (^)())failureBlock
 {
     // Create the API URL

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class NZHClassification;
 @class NZHCategoryViewController;
 
 @protocol NZHCategoryViewControllerDelegate <NSObject>
@@ -19,5 +20,7 @@
 @interface NZHCategoryViewController : UIPageViewController
 
 @property (weak, nonatomic) id <NZHCategoryViewControllerDelegate> categoryViewControllerDelegate;
+
+- (id)initWithClassification:(NZHClassification *)classification;
 
 @end
