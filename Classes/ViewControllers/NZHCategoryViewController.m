@@ -38,6 +38,19 @@
             
             NSArray *articles = [MTLJSONAdapter modelsOfClass:NZHArticle.class fromJSONArray:JSON error:nil];
             
+            // Quick way to limit length of articles' intro text
+            for (NZHArticle *article in articles) {
+                
+                NSUInteger maximumCharacters = 300;
+                
+                if ([article.introText length] > maximumCharacters) {
+                    NSRange range = {0, maximumCharacters - 3};
+                    range = [article.introText rangeOfComposedCharacterSequencesForRange:range];
+                    NSString *shortIntro = [NSString stringWithFormat:@"%@...", [article.introText substringWithRange:range]];
+                    article.introText = shortIntro;
+                }
+            }
+            
             if ([articles count]) {
                 self.articles = articles;
                 
@@ -47,7 +60,6 @@
             } else {
                 DLog(@"Error Loading: No articles: %@", JSON);
             }
-            
             
             
         } onFailure:^{
