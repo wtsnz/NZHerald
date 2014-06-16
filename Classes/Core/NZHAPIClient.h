@@ -12,7 +12,7 @@
 
 + (NZHAPIClient *)shared;
 
-- (void)fetchArticlesForClassificationId:(NSInteger)classificationId withCompletion:(void (^)(id JSON))completionBlock onFailure:(void (^)())failureBlock;
-- (void)fetchClassificationsWithCompletion:(void (^)(id JSON))completionBlock onFailure:(void (^)())failureBlock;
+- (void)fetchArticlesForClassificationId:(NSInteger)classificationId withCompletion:(void (^)(NSError *error, NSArray *articles))completionBlock;
+- (void)fetchClassificationsWithCompletion:(void (^)(NSError *error, NSArray *classifications))completionBlock;
 
 @end

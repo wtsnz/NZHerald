@@ -8,6 +8,8 @@
 
 #import "NZHArticle.h"
 
+static NSInteger const kMaximumArticleIntroTextLength = 250;
+
 @interface NZHArticle ()
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -42,10 +44,23 @@ static NSDateFormatter *kDateFormatter = nil;
 {
     if (kDateFormatter == nil) {
         kDateFormatter = [[NSDateFormatter alloc] init];
-        [kDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss'.'S"];
+        kDateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss'.'S";
+    }
+    return kDateFormatter;
+}
+
+#pragma mark - Setters
+
+- (void)setIntroText:(NSString *)introText
+{
+    // Trim the intro text if needed
+    if ([introText length] > kMaximumArticleIntroTextLength) {
+        NSRange range = {0, kMaximumArticleIntroTextLength - 3};
+        range = [introText rangeOfComposedCharacterSequencesForRange:range];
+        introText = [NSString stringWithFormat:@"%@...", [introText substringWithRange:range]];
     }
     
-    return kDateFormatter;
+    _introText = introText;
 }
 
 @end

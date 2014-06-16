@@ -45,17 +45,15 @@
     self.headerView = [[NZHIndexHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 100)];
     [self.view addSubview:self.headerView];
     
-    [[NZHAPIClient shared] fetchClassificationsWithCompletion:^(id JSON) {
+    [[NZHAPIClient shared] fetchClassificationsWithCompletion:^(NSError *error, NSArray *classifications) {
         
-        self.classifications = [MTLJSONAdapter modelsOfClass:NZHClassification.class fromJSONArray:JSON error:nil];
-        
-        [self.tableView reloadData];
-        
-    } onFailure:^{
+        if (!error) {
+            self.classifications = classifications;
+            [self.tableView reloadData];
+        }
         
     }];
 
-    
 }
 
 - (void)viewDidLayoutSubviews

@@ -8,6 +8,9 @@
 
 #import "NZHAPIClient.h"
 
+#import "NZHArticle.h"
+#import "NZHClassification.h"
+
 @implementation NZHAPIClient
 
 static NSString * const kServerBaseURL = @"http://rss.nzherald.co.nz/touch/?version=2.2&method=";
@@ -42,7 +45,7 @@ static NSString * const kAPIAppID = @"41";
     return [NSString stringWithFormat:@"&appID=%@&apikey=%@:%@:%@", kAPIAppID, kAPIAppID, @(timestamp), uuid];
 }
 
-- (void)fetchArticlesForClassificationId:(NSInteger)classificationId withCompletion:(void (^)(id JSON))completionBlock onFailure:(void (^)())failureBlock
+- (void)fetchArticlesForClassificationId:(NSInteger)classificationId withCompletion:(void (^)(NSError *error, NSArray *articles))completionBlock
 {
     // Create the API URL
     NSString *url = [kServerBaseURL stringByAppendingString:kAPIMethodArticles];
@@ -51,10 +54,17 @@ static NSString * const kAPIAppID = @"41";
     
     NSURL *requestURL = [NSURL URLWithString:url];
     
-    [self fetchRequestWithURL:requestURL onCompletion:completionBlock onFailure:failureBlock];
+    [self fetchRequestWithURL:requestURL onCompletion:^(NSError *error, id JSON) {
+        if (error) {
+            return completionBlock(error, nil);
+        }
+        
+        return completionBlock(nil, [MTLJSONAdapter modelsOfClass:NZHArticle.class fromJSONArray:JSON error:nil]);
+    }];
+    
 }
 
-- (void)fetchClassificationsWithCompletion:(void (^)(id JSON))completionBlock onFailure:(void (^)())failureBlock
+- (void)fetchClassificationsWithCompletion:(void (^)(NSError *error, NSArray *classifications))completionBlock
 {
     // Create the API URL
     NSString *url = [kServerBaseURL stringByAppendingString:kAPIMethodClassifications];
@@ -62,10 +72,17 @@ static NSString * const kAPIAppID = @"41";
     
     NSURL *requestURL = [NSURL URLWithString:url];
     
-    [self fetchRequestWithURL:requestURL onCompletion:completionBlock onFailure:failureBlock];
+    [self fetchRequestWithURL:requestURL onCompletion:^(NSError *error, id JSON) {
+        
+        if (error) {
+            return completionBlock(error, nil);
+        }
+        
+        return completionBlock(nil, [MTLJSONAdapter modelsOfClass:NZHClassification.class fromJSONArray:JSON error:nil]);
+    }];
 }
 
-- (void)fetchRequestWithURL:(NSURL *)url onCompletion:(void (^)(id JSON))completionBlock onFailure:(void (^)())failureBlock
+- (void)fetchRequestWithURL:(NSURL *)url onCompletion:(void (^)(NSError *error, id JSON))completionBlock
 {
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -75,22 +92,11 @@ static NSString * const kAPIAppID = @"41";
     
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        completionBlock(responseObject);
-        
-        
+        return completionBlock(nil, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-        
-        failureBlock();
-        
+        return completionBlock(error, nil);
     }];
     
     [requestOperation start];
