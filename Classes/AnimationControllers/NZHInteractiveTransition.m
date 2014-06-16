@@ -49,6 +49,7 @@
 - (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator
 {
     if (self.interactive) {
+        self.presenting = NO;
         return self;
     }
     
@@ -81,7 +82,7 @@
     containerView.backgroundColor = [UIColor blackColor];
     
     [containerView addSubview:toView];
-    [containerView sendSubviewToBack:toView];
+    [containerView addSubview:fromView];
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
