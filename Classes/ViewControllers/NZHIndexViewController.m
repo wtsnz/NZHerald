@@ -75,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.classifications count];
+    return (NSInteger)[self.classifications count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -92,7 +92,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    NZHClassification *classification = self.classifications[indexPath.row];
+    NZHClassification *classification = self.classifications[(NSUInteger)indexPath.row];
     
     cell.textLabel.text = classification.name;
     
@@ -112,7 +112,7 @@
     self.lastSelectedTableViewCell = [self.tableView cellForRowAtIndexPath:indexPath];
     self.interactiveTransitionController.sourceTableViewCell = self.lastSelectedTableViewCell;
     
-    NZHClassification *classification = self.classifications[indexPath.row];
+    NZHClassification *classification = self.classifications[(NSUInteger)indexPath.row];
     
     NZHCategoryViewController *categoryViewController = [[NZHCategoryViewController alloc] initWithClassification:classification];
     categoryViewController.categoryViewControllerDelegate = self;
