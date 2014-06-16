@@ -93,6 +93,7 @@
     NZHClassification *classification = self.classifications[(NSUInteger)indexPath.row];
     
     cell.textLabel.text = classification.name;
+    cell.textLabel.font = [UIFont fontWithName:@"Georgia" size:24];
     
     return cell;
 }
@@ -122,10 +123,6 @@
         self.interactiveTransitionController.reversed = YES;
     }];
     
-    // Show view controller from rootview
-    if ([self.delegate respondsToSelector:@selector(indexViewController:didSelectClassification:)]) {
-        //[self.delegate indexViewController:self didSelectClassification:[NZHClassification new]];
-    }
 }
 
 #pragma mark - NZHCategoryViewControllerDelegate
@@ -136,21 +133,6 @@
         self.interactiveTransitionController.reversed = NO;
     }];
     
-}
-
-#pragma mark - UIViewControllerTransitioningDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-{
-    NZHInteractiveTransition *animationController = [NZHInteractiveTransition new];
-    return animationController;
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    NZHInteractiveTransition *animationController = [NZHInteractiveTransition new];
-    animationController.reversed = YES;
-    return animationController;
 }
 
 #pragma mark - Getters

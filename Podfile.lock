@@ -19,7 +19,6 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Expecta (0.3.0)
-  - FXBlurView (1.6.1)
   - Mantle (1.5):
     - Mantle/extobjc
   - Mantle/extobjc (1.5)
@@ -32,7 +31,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
   - Expecta
-  - FXBlurView (~> 1.6)
   - Mantle (~> 1.5)
   - NSDate-Time-Ago (~> 1.0)
   - OCMock
@@ -43,7 +41,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   Expecta: ce8a51b9fad15a2cd573b291cb2909aaed865350
-  FXBlurView: 1d01b96076d65027314d1be024c7506c292392aa
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
   NSDate-Time-Ago: d9e94ff379d7ab9d21f2c8ddf63078d87e60eef9
   OCMock: 6db79185520e24f9f299548f2b8b07e41d881bd5

@@ -128,6 +128,7 @@
             belowCellSnapshot.top = cellSnapshot.bottom;
             
             fromView.layer.affineTransform = CGAffineTransformMakeScale(0.96f, 0.96f);
+            fromView.alpha = 0.1f;
             
         } completion: ^(BOOL finished) {
             

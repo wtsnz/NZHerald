@@ -13,12 +13,15 @@
 #import "NZHArticleViewController.h"
 #import "NZHArticle.h"
 
+#import "NZHCategoryHeaderView.h"
+
 #import "NZHAPIClient.h"
 
 @interface NZHCategoryViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) NSArray *articles;
-@property (strong, nonatomic) UIView *headerView;
+@property (strong, nonatomic) NZHCategoryHeaderView *headerView;
+@property (strong, nonatomic) NZHClassification *classification;
 
 @end
 
@@ -31,6 +34,11 @@
         self.delegate = self;
         self.dataSource = self;
         self.view.backgroundColor = [UIColor blackColor];
+        
+        self.classification = classification;
+        
+        // viewDidLoad has already been called at this point. Something random with subclassing UIPageViewController I presume.
+        self.headerView.title = classification.name;
         
         DLog(@"Loading cID: %@", @(classification.classificationId));
         
@@ -45,9 +53,7 @@
                     [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
                 }
             }
-            
         }];
-        
     }
     return self;
 }
@@ -56,16 +62,14 @@
 {
     [super viewDidLoad];
     
-    // Show a loading thing
+    // Show a loading thing?
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapClose)];
     
-    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 70)];
-    self.headerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3f];
+    self.headerView = [[NZHCategoryHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 70)];
+    self.headerView.title = self.classification.name;
     [self.headerView addGestureRecognizer:tapGesture];
     [self.view addSubview:self.headerView];
-    
-    [self prefersStatusBarHidden];
     
 }
 
@@ -73,6 +77,8 @@
 {
     return YES;
 }
+
+#pragma mark - Actions
 
 - (void)didTapClose
 {

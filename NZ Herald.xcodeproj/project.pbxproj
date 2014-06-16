@@ -13,6 +13,7 @@
 		8E4FD7CCA9704ABEA832FB3A /* NZHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADFCE2B2B764CDB8694E819 /* NZHAppDelegate.m */; };
 		9088187D152B41FE9B8388B9 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBE4565D87B4F30A8AA3425 /* libPods-unit_tests.a */; };
 		9EC92E7117CB4567AFC77BDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1EC4A96CA640978BF68990 /* main.m */; };
+		BE5365EC194EECB200D0CD11 /* NZHCategoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5365EB194EECB200D0CD11 /* NZHCategoryHeaderView.m */; };
 		BE718E2919348CF2004C6647 /* NZHClassification.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2819348CF2004C6647 /* NZHClassification.m */; };
 		BE718E2C19348D96004C6647 /* NZHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2B19348D96004C6647 /* NZHAPIClient.m */; };
 		BE718E2F193497C6004C6647 /* NZHIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2E193497C6004C6647 /* NZHIndexViewController.m */; };
@@ -47,6 +48,8 @@
 		78209622F28C4781864A98AC /* NZ Herald.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NZ Herald.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C649F39D3F2483DBA1B84B6 /* NZHAppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NZHAppDelegate.h; sourceTree = "<group>"; };
 		9DBE4565D87B4F30A8AA3425 /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5365EA194EECB200D0CD11 /* NZHCategoryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHCategoryHeaderView.h; sourceTree = "<group>"; };
+		BE5365EB194EECB200D0CD11 /* NZHCategoryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHCategoryHeaderView.m; sourceTree = "<group>"; };
 		BE718E2719348CF2004C6647 /* NZHClassification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHClassification.h; sourceTree = "<group>"; };
 		BE718E2819348CF2004C6647 /* NZHClassification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHClassification.m; sourceTree = "<group>"; };
 		BE718E2A19348D96004C6647 /* NZHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHAPIClient.h; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				BEC52EA41931FB3D001B69E8 /* NZHArticleHeaderView.m */,
 				BE718E371934B47D004C6647 /* NZHIndexHeaderView.h */,
 				BE718E381934B47D004C6647 /* NZHIndexHeaderView.m */,
+				BE5365EA194EECB200D0CD11 /* NZHCategoryHeaderView.h */,
+				BE5365EB194EECB200D0CD11 /* NZHCategoryHeaderView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5365EC194EECB200D0CD11 /* NZHCategoryHeaderView.m in Sources */,
 				BEC52EA21931E5D0001B69E8 /* NZHArticle.m in Sources */,
 				BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */,
 				BEC52EA51931FB3D001B69E8 /* NZHArticleHeaderView.m in Sources */,
