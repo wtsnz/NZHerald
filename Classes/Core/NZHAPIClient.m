@@ -28,14 +28,6 @@ static NSString * const kAPIAppID = @"41";
     return _sharedClient;
 }
 
-+ (NSString *)generateUUID
-{
-    CFUUIDRef UUID = CFUUIDCreate(NULL);
-    CFStringRef UUIDString = CFUUIDCreateString(NULL, UUID);
-    CFRelease(UUID);
-    return (__bridge NSString *)UUIDString;
-}
-
 #pragma mark - Instance
 
 - (NSString *)authorizationString
@@ -44,7 +36,7 @@ static NSString * const kAPIAppID = @"41";
     // The apiKey is optional for some reason, but easy enough to guess (AppId:InstallTimestamp:UUID - maybe advertisers?)
     // This will just make something that looks like a legit one, though obviously it's not.
     
-    NSString *uuid = [[NZHAPIClient generateUUID] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *uuid = [[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     NSInteger timestamp = (NSInteger)[[NSDate date] timeIntervalSince1970];
     
     return [NSString stringWithFormat:@"&appID=%@&apikey=%@:%@:%@", kAPIAppID, kAPIAppID, @(timestamp), uuid];
