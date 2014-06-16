@@ -90,6 +90,7 @@
     CGRect offscreenRect = initialFrame;
     offscreenRect.origin.y = initialFrame.origin.y + initialFrame.size.height;
     
+    // Hide Category View
     // Dissmiss the View Controller
     if (self.reversed) {
         
@@ -106,6 +107,7 @@
         UIView *belowCellSnapshot = [toView resizableSnapshotViewFromRect:belowCellFrame afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
         
         toView.alpha = 0.0f;
+        cellSnapshot.alpha = 0.0f;
         
         // Set frames
         aboveCellSnapshot.bottom = 0;
@@ -123,6 +125,7 @@
         // Animate out
         [UIView animateWithDuration:duration animations: ^{
             
+            cellSnapshot.alpha = 1.0f;
             cellSnapshot.frame = tableViewCellFrame;
             aboveCellSnapshot.bottom = cellSnapshot.top;
             belowCellSnapshot.top = cellSnapshot.bottom;
@@ -144,6 +147,7 @@
         }];
         
     }
+    // Show Category View Controller
     // Present the View Controller
     else {
         
@@ -180,7 +184,7 @@
             fromView.alpha = 0.0f;
             
             aboveCellSnapshot.bottom = 0.0f;
-            
+            cellSnapshot.alpha = 0.0f;
             cellSnapshot.top = 0.0f;
             
             belowCellSnapshot.top = initialFrame.size.height;

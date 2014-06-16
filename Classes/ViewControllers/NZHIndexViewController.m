@@ -56,6 +56,16 @@
 
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    if (selectedIndexPath) {
+        [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+    }
+}
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
