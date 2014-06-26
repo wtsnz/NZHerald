@@ -27,6 +27,8 @@
 
 @implementation NZHCategoryViewController
 
+#pragma mark - Instance
+
 - (id)initWithClassification:(NZHClassification *)classification
 {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {

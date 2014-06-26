@@ -18,6 +18,8 @@
 
 @implementation NZHCategoryHeaderView
 
+#pragma mark - Instance
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -34,6 +36,8 @@
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
     self.backgroundGradient.frame = self.bounds;
     
     self.titleLabel.left = 15.0f;

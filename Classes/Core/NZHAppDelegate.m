@@ -7,9 +7,8 @@
 //
 
 #import "NZHAppDelegate.h"
-#import "DebugLog.h"
 
-#import "NZHRootViewController.h"
+#import "DebugLog.h"
 #import "NZHIndexViewController.h"
 
 @implementation NZHAppDelegate

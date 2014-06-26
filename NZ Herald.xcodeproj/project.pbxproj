@@ -17,7 +17,6 @@
 		BE718E2919348CF2004C6647 /* NZHClassification.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2819348CF2004C6647 /* NZHClassification.m */; };
 		BE718E2C19348D96004C6647 /* NZHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2B19348D96004C6647 /* NZHAPIClient.m */; };
 		BE718E2F193497C6004C6647 /* NZHIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E2E193497C6004C6647 /* NZHIndexViewController.m */; };
-		BE718E32193498D8004C6647 /* NZHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E31193498D8004C6647 /* NZHRootViewController.m */; };
 		BE718E361934B01B004C6647 /* NZHInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E351934B01B004C6647 /* NZHInteractiveTransition.m */; };
 		BE718E391934B47D004C6647 /* NZHIndexHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE718E381934B47D004C6647 /* NZHIndexHeaderView.m */; };
 		BEC52E9C1931E1B4001B69E8 /* NZHArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC52E9B1931E1B4001B69E8 /* NZHArticleViewController.m */; };
@@ -56,8 +55,6 @@
 		BE718E2B19348D96004C6647 /* NZHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHAPIClient.m; sourceTree = "<group>"; };
 		BE718E2D193497C6004C6647 /* NZHIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHIndexViewController.h; sourceTree = "<group>"; };
 		BE718E2E193497C6004C6647 /* NZHIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHIndexViewController.m; sourceTree = "<group>"; };
-		BE718E30193498D8004C6647 /* NZHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHRootViewController.h; sourceTree = "<group>"; };
-		BE718E31193498D8004C6647 /* NZHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHRootViewController.m; sourceTree = "<group>"; };
 		BE718E341934B01B004C6647 /* NZHInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHInteractiveTransition.h; sourceTree = "<group>"; };
 		BE718E351934B01B004C6647 /* NZHInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZHInteractiveTransition.m; sourceTree = "<group>"; };
 		BE718E371934B47D004C6647 /* NZHIndexHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZHIndexHeaderView.h; sourceTree = "<group>"; };
@@ -283,8 +280,6 @@
 		E020F23C610D436F86A990D4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BE718E30193498D8004C6647 /* NZHRootViewController.h */,
-				BE718E31193498D8004C6647 /* NZHRootViewController.m */,
 				BE718E2D193497C6004C6647 /* NZHIndexViewController.h */,
 				BE718E2E193497C6004C6647 /* NZHIndexViewController.m */,
 				BEC52E9D1931E1C7001B69E8 /* NZHCategoryViewController.h */,
@@ -493,7 +488,6 @@
 				BE718E2C19348D96004C6647 /* NZHAPIClient.m in Sources */,
 				8E4FD7CCA9704ABEA832FB3A /* NZHAppDelegate.m in Sources */,
 				BE718E2F193497C6004C6647 /* NZHIndexViewController.m in Sources */,
-				BE718E32193498D8004C6647 /* NZHRootViewController.m in Sources */,
 				9EC92E7117CB4567AFC77BDF /* main.m in Sources */,
 				BEC52E9F1931E1C7001B69E8 /* NZHCategoryViewController.m in Sources */,
 			);

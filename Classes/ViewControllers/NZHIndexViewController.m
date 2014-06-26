@@ -23,7 +23,6 @@
 @property (strong, nonatomic) UITableView *tableView;
 
 @property (strong, nonatomic) NZHInteractiveTransition *interactiveTransitionController;
-
 @property (weak, nonatomic) UITableViewCell *lastSelectedTableViewCell;
 
 @property (strong, nonatomic) NSArray *classifications;
@@ -31,6 +30,8 @@
 @end
 
 @implementation NZHIndexViewController
+
+#pragma mark - Instance
 
 - (void)viewDidLoad
 {

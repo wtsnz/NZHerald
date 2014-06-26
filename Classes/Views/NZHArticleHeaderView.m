@@ -12,8 +12,7 @@
 
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
-
-#import "NSDate+NVTimeAgo.h"
+#import <NSDate+NVTimeAgo.h>
 
 @interface NZHArticleHeaderView ()
 
@@ -36,6 +35,8 @@
 
 @implementation NZHArticleHeaderView
 
+#pragma mark - Instance
+
 - (id)initWithArticle:(NZHArticle *)article
 {
     if (self = [super init]) {
@@ -45,77 +46,21 @@
         self.backgroundColor = [UIColor blackColor];
         self.clipsToBounds = YES;
         
-        self.articleImageView = [[UIImageView alloc] init];
-        self.articleImageView.alpha = 0.0f;
+        // Add Subviews
         [self addSubview:self.articleImageView];
-        
-        self.reversedArticleImageView = [[UIImageView alloc] init];
-        self.reversedArticleImageView.layer.transform = CATransform3DMakeRotation((float)(M_PI), 1.0f, 0, 0);
-        self.reversedArticleImageView.layer.doubleSided = YES;
-        self.reversedArticleImageView.alpha = 0.0f;
         [self addSubview:self.reversedArticleImageView];
         
-     
-        // Let's download the image
-        
-        NSURL *imageUrl = [NSURL URLWithString:[self.article.imageUrls firstObject]];
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageUrl];
-        
-        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
-        requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
-        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            // Never assume we've got the right response.
-            if ([responseObject isKindOfClass:[UIImage class]]) {
-                self.articleImage = responseObject;
-            }
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error: %@", error.localizedDescription);
-        }];
-        [requestOperation start];
-        
-        // Create the background gradient
-        self.backgroundGradient = [CAGradientLayer layer];
-        self.backgroundGradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-        self.backgroundGradient.startPoint = CGPointMake(0, 0.2f);
-        self.backgroundGradient.endPoint = CGPointMake(0, 0.8f);
         [self.layer addSublayer:self.backgroundGradient];
         
-        self.headingLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.headingLabel.text = self.article.headline;
-        self.headingLabel.textColor = [UIColor whiteColor];
-        self.headingLabel.font = [UIFont fontWithName:@"Georgia-Bold" size:34];
-        self.headingLabel.numberOfLines = 0;
         [self addSubview:self.headingLabel];
-        
-        self.introLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        
-        // Create paragraph styles
-        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        style.lineSpacing = 0;
-        
-        // Create the mutable attributed string
-        NSMutableAttributedString *introText = [[NSMutableAttributedString alloc] initWithData:[self.article.introText dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
-        
-        // Add text attributes
-        NSRange textRange = NSMakeRange(0, [introText length]);
-        [introText addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:textRange];
-        [introText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Georgia-Italic" size:18] range:textRange];
-        [introText addAttribute:NSParagraphStyleAttributeName value:style range:textRange];
-        
-        self.introLabel.attributedText = introText;
-        self.introLabel.textColor = [UIColor whiteColor];
-        self.introLabel.font = [UIFont fontWithName:@"Georgia-Italic" size:18];
-        self.introLabel.numberOfLines = 0;
         [self addSubview:self.introLabel];
-        
-        self.publishedLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.publishedLabel.text = [self.article.publishedDate formattedAsTimeAgo];
-        self.publishedLabel.textColor = [UIColor whiteColor];
-        self.publishedLabel.font = [UIFont fontWithName:@"Georgia" size:12];
-        self.publishedLabel.numberOfLines = 0;
         [self addSubview:self.publishedLabel];
+        
+        self.headingLabel.text = self.article.headline;
+        self.introLabel.attributedText = [self attributedIntroTextWithArticle:self.article];
+        self.publishedLabel.text = [self.article.publishedDate formattedAsTimeAgo];
+        
+        [self loadImage];
         
     }
     return self;
@@ -152,6 +97,43 @@
     
 }
 
+- (void)loadImage
+{
+    NSURL *imageUrl = [NSURL URLWithString:[self.article.imageUrls firstObject]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageUrl];
+    
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        // AFImageResponseSerializer will garentee that we've an image response.
+        self.articleImage = responseObject;
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DLog(@"Error: %@", error.localizedDescription);
+    }];
+    
+    [requestOperation start];
+}
+
+- (NSAttributedString *)attributedIntroTextWithArticle:(NZHArticle *)article
+{
+    // Create paragraph styles
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = 0;
+    
+    // Create the mutable attributed string
+    NSMutableAttributedString *introText = [[NSMutableAttributedString alloc] initWithData:[article.introText dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+    
+    // Add text attributes
+    NSRange textRange = NSMakeRange(0, [introText length]);
+    [introText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:textRange];
+    [introText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Georgia-Italic" size:18] range:textRange];
+    [introText addAttribute:NSParagraphStyleAttributeName value:style range:textRange];
+    
+    return introText;
+}
+
 - (void)setTextOffset:(CGFloat)textOffset
 {
     _textOffset = textOffset;
@@ -178,6 +160,72 @@
         self.articleImageView.alpha = 1.0f;
         self.reversedArticleImageView.alpha = 1.0f;
     }];
+}
+
+#pragma mark - Getters
+
+- (UIImageView *)articleImageView
+{
+    if (!_articleImageView) {
+        _articleImageView = [[UIImageView alloc] init];
+        _articleImageView.alpha = 0.0f;
+    }
+    return _articleImageView;
+}
+
+- (UIImageView *)reversedArticleImageView
+{
+    if (!_reversedArticleImageView) {
+        _reversedArticleImageView = [[UIImageView alloc] init];
+        _reversedArticleImageView.layer.transform = CATransform3DMakeRotation((float)(M_PI), 1.0f, 0, 0);
+        _reversedArticleImageView.layer.doubleSided = YES;
+        _reversedArticleImageView.alpha = 0.0f;
+    }
+    return _reversedArticleImageView;
+}
+
+- (CAGradientLayer *)backgroundGradient
+{
+    if (!_backgroundGradient) {
+        _backgroundGradient = [CAGradientLayer layer];
+        _backgroundGradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+        _backgroundGradient.startPoint = CGPointMake(0, 0.2f);
+        _backgroundGradient.endPoint = CGPointMake(0, 0.8f);
+    }
+    return _backgroundGradient;
+}
+
+- (UILabel *)headingLabel
+{
+    if (!_headingLabel) {
+        _headingLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _headingLabel.textColor = [UIColor whiteColor];
+        _headingLabel.font = [UIFont fontWithName:@"Georgia-Bold" size:34];
+        _headingLabel.numberOfLines = 0;
+    }
+    return _headingLabel;
+}
+
+- (UILabel *)introLabel
+{
+    if (!_introLabel) {
+        _introLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _introLabel.textColor = [UIColor whiteColor];
+        _introLabel.font = [UIFont fontWithName:@"Georgia-Italic" size:18];
+        _introLabel.numberOfLines = 0;
+    }
+    return _introLabel;
+}
+
+- (UILabel *)publishedLabel
+{
+    if (!_publishedLabel) {
+        _publishedLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _publishedLabel.textColor = [UIColor whiteColor];
+        _publishedLabel.font = [UIFont fontWithName:@"Georgia" size:12];
+        _publishedLabel.numberOfLines = 0;
+    }
+    return _publishedLabel;
 }
 
 @end

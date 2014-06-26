@@ -16,18 +16,15 @@
 
 @implementation NZHIndexHeaderView
 
+#pragma mark - Instance
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        
+        // Configure View
         self.backgroundColor = [UIColor whiteColor];
-        
-        self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"New_Zealand_Herald_logo"]];
-        self.imageView.contentMode = UIViewContentModeCenter;
         [self addSubview:self.imageView];
-        
     }
     return self;
 }
@@ -39,6 +36,17 @@
     self.imageView.width = self.width;
     self.imageView.height = self.height;
     
+}
+
+#pragma mark - Getters
+
+- (UIImageView *)imageView
+{
+    if (!_imageView) {
+        _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"New_Zealand_Herald_logo"]];
+        _imageView.contentMode = UIViewContentModeCenter;
+    }
+    return _imageView;
 }
 
 @end

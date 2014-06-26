@@ -61,9 +61,9 @@
 
 - (void)animationEnded:(BOOL)transitionCompleted
 {
-    self.interactive = NO;
-    self.presenting = NO;
-    self.transitionContext = nil;
+    //self.interactive = NO;
+    //self.presenting = NO;
+    //self.transitionContext = nil;
 }
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
@@ -91,7 +91,6 @@
     offscreenRect.origin.y = initialFrame.origin.y + initialFrame.size.height;
     
     // Hide Category View
-    // Dissmiss the View Controller
     if (self.reversed) {
         
         toView.alpha = 1.0f;
@@ -148,7 +147,6 @@
         
     }
     // Show Category View Controller
-    // Present the View Controller
     else {
         
         
