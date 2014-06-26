@@ -8,7 +8,7 @@ A subjectively more enjoyable way to browse the NZHerald on your iPhone.
 
 ## About ##
 
-It's rough, I know, I spent a few nights hacking on this, though I thought I'd make it public as some of you may like it on your phone. 
+It's rough, I know, I spent a few nights hacking on this, though I thought I'd make it public as some of you may like it on your phone. I do.
 
 ### Issues ###
 
