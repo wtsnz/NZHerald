@@ -12,7 +12,7 @@ It's rough, I know, I spent a few nights hacking on this, though I thought I'd m
 
 ### Issues ###
 
-There are a few issues I've not got around to investigating/fixing (and probably won't), the main being that sometime the attributed string generated with NSDocumentTypeDocumentAttribute NSHTMLTextDocumentType doesn't work all the time.
+There are a few issues I've not got around to investigating/fixing (and probably won't), the main being that sometime the attributed string generated with NSDocumentTypeDocumentAttribute NSHTMLTextDocumentType doesn't work all the time. Oh and it crashes on the Weather tab if you swipe, so don't do that thanks.
 
 ## Setup ##
 
