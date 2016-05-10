@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="Article" representedClassName="NZHerald.Article" syncable="YES">
+        <attribute name="content" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="elapsedTime" attributeType="String" syncable="YES"/>
+        <attribute name="headline" attributeType="String" syncable="YES"/>
+        <attribute name="introText" attributeType="String" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="objectId" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="storyDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updatedDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Article" positionX="-63" positionY="-18" width="128" height="180"/>
+    </elements>
+</model>

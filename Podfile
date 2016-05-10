@@ -1,8 +1,15 @@
-platform :ios, '7.0'
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+use_frameworks!
 
-# Add Application pods here
+target 'NZHerald' do
 
-pod 'ViewUtils', '~> 1.1'
-pod 'AFNetworking', '~> 2.2'
-pod 'Mantle', '~> 1.5'
-pod 'NSDate-Time-Ago', '~> 1.0'
+pod 'SwiftyJSON', '~> 2.3'
+pod 'DTCoreText'
+pod 'Kingfisher', '~> 2.3'
+pod 'SnapKit'
+pod 'CryptoSwift'
+pod 'YapDatabase', '~> 2.9'
+
+end

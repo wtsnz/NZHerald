@@ -1,39 +1,96 @@
 PODS:
-  - AFNetworking (2.2.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.4):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.4):
-    - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.4)
-  - AFNetworking/Security (2.2.4)
-  - AFNetworking/Serialization (2.2.4)
-  - AFNetworking/UIKit (2.2.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-  - Mantle (1.5):
-    - Mantle/extobjc
-  - Mantle/extobjc (1.5)
-  - NSDate-Time-Ago (1.0)
-  - ViewUtils (1.1.2)
+  - CocoaLumberjack (2.2.0):
+    - CocoaLumberjack/Default (= 2.2.0)
+    - CocoaLumberjack/Extensions (= 2.2.0)
+  - CocoaLumberjack/Core (2.2.0)
+  - CocoaLumberjack/Default (2.2.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.2.0):
+    - CocoaLumberjack/Default
+  - CryptoSwift (0.3.1)
+  - DTCoreText (1.6.17):
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTFoundation/Core (1.7.10)
+  - DTFoundation/DTAnimatedGIF (1.7.10)
+  - DTFoundation/DTHTMLParser (1.7.10):
+    - DTFoundation/Core
+  - DTFoundation/UIKit (1.7.10):
+    - DTFoundation/Core
+  - Kingfisher (2.3.1)
+  - Reachability (3.2)
+  - SnapKit (0.20.0)
+  - SwiftyJSON (2.3.2)
+  - YapDatabase (2.9):
+    - YapDatabase/Standard (= 2.9)
+  - YapDatabase/Standard (2.9):
+    - YapDatabase/Standard/Core (= 2.9)
+    - YapDatabase/Standard/Extensions (= 2.9)
+  - YapDatabase/Standard/Core (2.9):
+    - CocoaLumberjack (~> 2)
+  - YapDatabase/Standard/Extensions (2.9):
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/ActionManager (= 2.9)
+    - YapDatabase/Standard/Extensions/CloudKit (= 2.9)
+    - YapDatabase/Standard/Extensions/ConnectionProxy (= 2.9)
+    - YapDatabase/Standard/Extensions/CrossProcessNotification (= 2.9)
+    - YapDatabase/Standard/Extensions/FilteredViews (= 2.9)
+    - YapDatabase/Standard/Extensions/FullTextSearch (= 2.9)
+    - YapDatabase/Standard/Extensions/Hooks (= 2.9)
+    - YapDatabase/Standard/Extensions/Relationships (= 2.9)
+    - YapDatabase/Standard/Extensions/RTreeIndex (= 2.9)
+    - YapDatabase/Standard/Extensions/SearchResults (= 2.9)
+    - YapDatabase/Standard/Extensions/SecondaryIndex (= 2.9)
+    - YapDatabase/Standard/Extensions/Views (= 2.9)
+  - YapDatabase/Standard/Extensions/ActionManager (2.9):
+    - Reachability (~> 3)
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/Views
+  - YapDatabase/Standard/Extensions/CloudKit (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/ConnectionProxy (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/CrossProcessNotification (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/FilteredViews (2.9):
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/Views
+  - YapDatabase/Standard/Extensions/FullTextSearch (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/Hooks (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/Relationships (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/RTreeIndex (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/SearchResults (2.9):
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/FullTextSearch
+    - YapDatabase/Standard/Extensions/Views
+  - YapDatabase/Standard/Extensions/SecondaryIndex (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/Views (2.9):
+    - YapDatabase/Standard/Core
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.2)
-  - Mantle (~> 1.5)
-  - NSDate-Time-Ago (~> 1.0)
-  - ViewUtils (~> 1.1)
+  - CryptoSwift
+  - DTCoreText
+  - Kingfisher (~> 2.3)
+  - SnapKit
+  - SwiftyJSON (~> 2.3)
+  - YapDatabase (~> 2.9)
 
 SPEC CHECKSUMS:
-  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
-  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
-  NSDate-Time-Ago: d9e94ff379d7ab9d21f2c8ddf63078d87e60eef9
-  ViewUtils: 11aaceb3b215b3d051c2f00ae143133a71095365
+  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
+  CryptoSwift: baf01e3fb3226c0155cd54c266be882b13d45d5e
+  DTCoreText: 3ea8bba23dd2141ba18adb227a7dd33a822df1c4
+  DTFoundation: 3b6b1b817d2a7fb02e7eaf2596c922a68145bd43
+  Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SnapKit: 5fce3c1bbbf1fbd31de9aa92f33eb9fa03f15650
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  YapDatabase: c00f4197bba2fea17bdbd82c8e8e3f7104b6fa67
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.39.0

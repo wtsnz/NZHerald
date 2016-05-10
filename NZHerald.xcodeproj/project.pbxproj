@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A55E9680B87558B332B46CCD /* Pods_NZHerald.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB11E2DCDFA5506FEC1D215 /* Pods_NZHerald.framework */; };
+		BE12410B1CDBEFC200E2D248 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12410A1CDBEFC200E2D248 /* Coordinator.swift */; };
+		BE1B5F391CE089ED0059E489 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1B5F381CE089ED0059E489 /* AppCoordinator.swift */; };
+		BE1B5F3B1CE089F70059E489 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1B5F3A1CE089F70059E489 /* TabBarCoordinator.swift */; };
+		BE1B5F3D1CE08B860059E489 /* ArticleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1B5F3C1CE08B860059E489 /* ArticleCoordinator.swift */; };
+		BE1B5F401CE08C0B0059E489 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1B5F3F1CE08C0B0059E489 /* ArticleViewController.swift */; };
+		BE1B5F421CE08C5B0059E489 /* ArticleIndexCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1B5F411CE08C5B0059E489 /* ArticleIndexCollectionViewController.swift */; };
+		BE1B5F441CE08C820059E489 /* ArticleIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1B5F431CE08C820059E489 /* ArticleIndexCollectionViewCell.swift */; };
+		BE1B5F471CE09D700059E489 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1B5F461CE09D700059E489 /* ArticleView.swift */; };
+		BE4BEB311CD0226700866229 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4BEB301CD0226700866229 /* Article.swift */; };
+		BEB866951CCA236B0001443F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB866941CCA236B0001443F /* AppDelegate.swift */; };
+		BEB8669C1CCA236B0001443F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB8669B1CCA236B0001443F /* Assets.xcassets */; };
+		BEB866A71CCA24110001443F /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB866A61CCA24110001443F /* NetworkController.swift */; };
+		BEB866A91CCA24540001443F /* NetworkRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB866A81CCA24540001443F /* NetworkRequestOperation.swift */; };
+		BEB866B41CCA4AD60001443F /* LatestNewsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB866B31CCA4AD60001443F /* LatestNewsOperation.swift */; };
+		BEB866CD1CCB1F840001443F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB866CC1CCB1F840001443F /* DatabaseManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18BCFBCEFB65738CE1EAF327 /* Pods-NZHerald.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NZHerald.release.xcconfig"; path = "Pods/Target Support Files/Pods-NZHerald/Pods-NZHerald.release.xcconfig"; sourceTree = "<group>"; };
+		8CB11E2DCDFA5506FEC1D215 /* Pods_NZHerald.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NZHerald.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE12410A1CDBEFC200E2D248 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BE1B5F381CE089ED0059E489 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BE1B5F3A1CE089F70059E489 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		BE1B5F3C1CE08B860059E489 /* ArticleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCoordinator.swift; sourceTree = "<group>"; };
+		BE1B5F3F1CE08C0B0059E489 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		BE1B5F411CE08C5B0059E489 /* ArticleIndexCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleIndexCollectionViewController.swift; sourceTree = "<group>"; };
+		BE1B5F431CE08C820059E489 /* ArticleIndexCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleIndexCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE1B5F461CE09D700059E489 /* ArticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		BE4BEB301CD0226700866229 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		BEB866911CCA236B0001443F /* NZHerald.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NZHerald.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEB866941CCA236B0001443F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BEB8669B1CCA236B0001443F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEB866A01CCA236B0001443F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEB866A61CCA24110001443F /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		BEB866A81CCA24540001443F /* NetworkRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestOperation.swift; sourceTree = "<group>"; };
+		BEB866B31CCA4AD60001443F /* LatestNewsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestNewsOperation.swift; sourceTree = "<group>"; };
+		BEB866B51CCA4F1D0001443F /* NZHerald-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NZHerald-Bridging-Header.h"; sourceTree = "<group>"; };
+		BEB866CC1CCB1F840001443F /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E229F2CBACC75A4A03F3DD53 /* Pods-NZHerald.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NZHerald.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NZHerald/Pods-NZHerald.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEB8668E1CCA236B0001443F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A55E9680B87558B332B46CCD /* Pods_NZHerald.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		73D3C45159EA925F131B5139 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CB11E2DCDFA5506FEC1D215 /* Pods_NZHerald.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE1B5F371CE089E00059E489 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				BE12410A1CDBEFC200E2D248 /* Coordinator.swift */,
+				BE1B5F381CE089ED0059E489 /* AppCoordinator.swift */,
+				BE1B5F3A1CE089F70059E489 /* TabBarCoordinator.swift */,
+				BE1B5F3C1CE08B860059E489 /* ArticleCoordinator.swift */,
+			);
+			name = Coordinators;
+			sourceTree = "<group>";
+		};
+		BE1B5F3E1CE08B940059E489 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE1B5F461CE09D700059E489 /* ArticleView.swift */,
+				BE1B5F3F1CE08C0B0059E489 /* ArticleViewController.swift */,
+				BE1B5F411CE08C5B0059E489 /* ArticleIndexCollectionViewController.swift */,
+				BE1B5F431CE08C820059E489 /* ArticleIndexCollectionViewCell.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BEB866881CCA236B0001443F = {
+			isa = PBXGroup;
+			children = (
+				BEB866931CCA236B0001443F /* NZHerald */,
+				BEB866921CCA236B0001443F /* Products */,
+				CD64F45A184D239E9B00924C /* Pods */,
+				73D3C45159EA925F131B5139 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BEB866921CCA236B0001443F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEB866911CCA236B0001443F /* NZHerald.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEB866931CCA236B0001443F /* NZHerald */ = {
+			isa = PBXGroup;
+			children = (
+				BE1B5F3E1CE08B940059E489 /* View Controllers */,
+				BE1B5F371CE089E00059E489 /* Coordinators */,
+				BEB866AA1CCA24740001443F /* Network */,
+				BEB866941CCA236B0001443F /* AppDelegate.swift */,
+				BEB8669B1CCA236B0001443F /* Assets.xcassets */,
+				BEB866A01CCA236B0001443F /* Info.plist */,
+				BEB866B51CCA4F1D0001443F /* NZHerald-Bridging-Header.h */,
+			);
+			path = NZHerald;
+			sourceTree = "<group>";
+		};
+		BEB866AA1CCA24740001443F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BEB866CC1CCB1F840001443F /* DatabaseManager.swift */,
+				BE4BEB301CD0226700866229 /* Article.swift */,
+				BEB866AD1CCA26A10001443F /* Operations */,
+				BEB866A61CCA24110001443F /* NetworkController.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		BEB866AD1CCA26A10001443F /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				BEB866A81CCA24540001443F /* NetworkRequestOperation.swift */,
+				BEB866B31CCA4AD60001443F /* LatestNewsOperation.swift */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		CD64F45A184D239E9B00924C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E229F2CBACC75A4A03F3DD53 /* Pods-NZHerald.debug.xcconfig */,
+				18BCFBCEFB65738CE1EAF327 /* Pods-NZHerald.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEB866901CCA236B0001443F /* NZHerald */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEB866A31CCA236B0001443F /* Build configuration list for PBXNativeTarget "NZHerald" */;
+			buildPhases = (
+				8548203DED97D417158062E0 /* Check Pods Manifest.lock */,
+				BEB8668D1CCA236B0001443F /* Sources */,
+				BEB8668E1CCA236B0001443F /* Frameworks */,
+				BEB8668F1CCA236B0001443F /* Resources */,
+				886FBA0984EF9072D2D843D1 /* Embed Pods Frameworks */,
+				DC812422959A9F7E6D2F5F5C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NZHerald;
+			productName = NZHerald;
+			productReference = BEB866911CCA236B0001443F /* NZHerald.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEB866891CCA236B0001443F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				TargetAttributes = {
+					BEB866901CCA236B0001443F = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = BEB8668C1CCA236B0001443F /* Build configuration list for PBXProject "NZHerald" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEB866881CCA236B0001443F;
+			productRefGroup = BEB866921CCA236B0001443F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEB866901CCA236B0001443F /* NZHerald */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEB8668F1CCA236B0001443F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEB8669C1CCA236B0001443F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8548203DED97D417158062E0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		886FBA0984EF9072D2D843D1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NZHerald/Pods-NZHerald-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC812422959A9F7E6D2F5F5C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NZHerald/Pods-NZHerald-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEB8668D1CCA236B0001443F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE1B5F3D1CE08B860059E489 /* ArticleCoordinator.swift in Sources */,
+				BE1B5F401CE08C0B0059E489 /* ArticleViewController.swift in Sources */,
+				BE12410B1CDBEFC200E2D248 /* Coordinator.swift in Sources */,
+				BE4BEB311CD0226700866229 /* Article.swift in Sources */,
+				BEB866A91CCA24540001443F /* NetworkRequestOperation.swift in Sources */,
+				BE1B5F471CE09D700059E489 /* ArticleView.swift in Sources */,
+				BEB866B41CCA4AD60001443F /* LatestNewsOperation.swift in Sources */,
+				BE1B5F441CE08C820059E489 /* ArticleIndexCollectionViewCell.swift in Sources */,
+				BEB866951CCA236B0001443F /* AppDelegate.swift in Sources */,
+				BE1B5F421CE08C5B0059E489 /* ArticleIndexCollectionViewController.swift in Sources */,
+				BE1B5F391CE089ED0059E489 /* AppCoordinator.swift in Sources */,
+				BEB866CD1CCB1F840001443F /* DatabaseManager.swift in Sources */,
+				BE1B5F3B1CE089F70059E489 /* TabBarCoordinator.swift in Sources */,
+				BEB866A71CCA24110001443F /* NetworkController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BEB866A11CCA236B0001443F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BEB866A21CCA236B0001443F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEB866A41CCA236B0001443F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E229F2CBACC75A4A03F3DD53 /* Pods-NZHerald.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = NZHerald/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.townsend.NZHerald;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NZHerald/NZHerald-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BEB866A51CCA236B0001443F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18BCFBCEFB65738CE1EAF327 /* Pods-NZHerald.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = NZHerald/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.townsend.NZHerald;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NZHerald/NZHerald-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEB8668C1CCA236B0001443F /* Build configuration list for PBXProject "NZHerald" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEB866A11CCA236B0001443F /* Debug */,
+				BEB866A21CCA236B0001443F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEB866A31CCA236B0001443F /* Build configuration list for PBXNativeTarget "NZHerald" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEB866A41CCA236B0001443F /* Debug */,
+				BEB866A51CCA236B0001443F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEB866891CCA236B0001443F /* Project object */;
+}
