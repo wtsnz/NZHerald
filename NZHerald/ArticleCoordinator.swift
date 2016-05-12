@@ -22,6 +22,8 @@ class ArticleCoordinator: Coordinator {
     
     lazy var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
+        navigationController.hidesBarsOnSwipe = true
+        navigationController.hidesBarsOnTap = true
         return navigationController
     }()
 

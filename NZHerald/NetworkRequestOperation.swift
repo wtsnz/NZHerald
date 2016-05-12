@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Operation : NSOperation {
+class Operation: NSOperation {
     
     override var asynchronous: Bool {
         return true

@@ -12,13 +12,12 @@ import SwiftyJSON
 
 class LatestNewsOperation: NetworkRequestOperation {
     
-    let databaseConnection: YapDatabaseConnection
+    typealias LatestNewsOperationCompletion = (articles: [Article]) -> ()
     
-    required init(databaseConnection: YapDatabaseConnection, urlRequest: NSMutableURLRequest) {
-        self.databaseConnection = databaseConnection
-        
-        // generate url request
-        
+    let processDataCompletionBlock: LatestNewsOperationCompletion
+    
+    required init(urlRequest: NSMutableURLRequest, completion: LatestNewsOperationCompletion) {
+        self.processDataCompletionBlock = completion
         super.init(urlRequest: urlRequest)
     }
     
@@ -38,26 +37,7 @@ class LatestNewsOperation: NetworkRequestOperation {
         
         let articles = data.flatMap { Article.fromJSON($0) }
         
-//        var articles: [Article] = []
-//        
-//        for dictionary in data {
-//            
-//            if let article = Article.fromJSON(dictionary) {
-//                articles.append(article)
-//            }
-//        }
-        
-//        let articles = data.flatMap { Article(dictionary: $0) }
-        
-        self.databaseConnection.readWriteWithBlock { (let transation) in
-            
-            for article in articles {
-                transation.setObject(article, forKey: article.databaseKey, inCollection: Article.DatabaseCollection)
-            }
-            
-        }
-        
-        print(articles)
+        self.processDataCompletionBlock(articles: articles)
         
     }
     

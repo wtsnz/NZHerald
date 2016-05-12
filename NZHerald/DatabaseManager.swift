@@ -51,7 +51,7 @@ public class DatabaseManager {
         let sorting = YapDatabaseViewSorting.withObjectBlock { (let transaction, let group, let collection1, let key1, let object1, let collection2, let key2, let object2) -> NSComparisonResult in
             
             if let article1 = object1 as? Article, article2 = object2 as? Article {
-                return article2.sortDate.compare(article1.sortDate)
+                return article2.createdDate.compare(article1.createdDate)
             }
             
             return .OrderedAscending

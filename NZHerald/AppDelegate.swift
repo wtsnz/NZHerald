@@ -10,11 +10,9 @@ import UIKit
 
 struct Services {
     
-    let databaseManager: DatabaseManager
     let networkController: NetworkController
     
-    init(databaseManager: DatabaseManager, networkController: NetworkController) {
-        self.databaseManager = databaseManager
+    init(networkController: NetworkController) {
         self.networkController = networkController
     }
     
@@ -25,13 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let databaseManager = DatabaseManager()
     lazy var networkController: NetworkController = {
-        return NetworkController(databaseConnection: self.databaseManager.databaseConnection!)
+        return NetworkController()
     }()
     
     lazy var services: Services = {
-        return Services(databaseManager: self.databaseManager, networkController: self.networkController)
+        return Services(networkController: self.networkController)
     }()
     
     lazy var appCoordinator: AppCoordinator = {

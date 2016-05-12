@@ -30,7 +30,6 @@ class ArticleViewController: UIViewController {
         
         self.title = article.headline
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(tappedCloseButton))
-                
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,12 +43,23 @@ class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(self.article.content)
+        
         if let data = self.article.content.dataUsingEncoding(NSUTF8StringEncoding) {
             
+            let defaultStyles =
+                "body { width: 100%; display: block; font: 16px Optima; }\n" +
+                "p { color: #333333; line-height: 21pt; }"
+            
+            let cssStylesheet: DTCSSStylesheet = DTCSSStylesheet(styleBlock: defaultStyles)
+            
             let options: [String: AnyObject] = [
-                DTDefaultFontFamily: "SanFranciscoDisplay",
-                DTDefaultFontName: "Regular",
-                DTDefaultFontSize: 20.0
+//                DTDefaultFontFamily: "SanFranciscoDisplay",
+//                DTDefaultFontName: "Regular",
+                DTDefaultFontSize: 20.0,
+                DTIgnoreInlineStylesOption: true,
+//                DTDefaultLineHeightMultiplier: 1.5,
+                DTDefaultStyleSheet: cssStylesheet
             ]
             
             let string = DTHTMLAttributedStringBuilder(HTML: data, options: options, documentAttributes: nil)

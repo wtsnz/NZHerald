@@ -15,7 +15,10 @@ class TabBarCoordinator: Coordinator {
     
     lazy var tabBarController: UITabBarController = {
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [self.articleIndexCollectionNavigationController]
+        tabBarController.viewControllers = [
+            self.articleIndexCollectionNavigationController,
+            self.latestArticlesNavigationController
+        ]
         return tabBarController
     }()
     
@@ -28,6 +31,17 @@ class TabBarCoordinator: Coordinator {
         let articleIndexCollectionViewController = ArticleIndexCollectionViewController(services: self.services)
         articleIndexCollectionViewController.delegate = self
         return articleIndexCollectionViewController
+    }()
+    
+    lazy var latestArticlesNavigationController: UINavigationController = {
+        let latestArticlesNavigationController = UINavigationController(rootViewController: self.latestArticlesViewController)
+        return latestArticlesNavigationController
+    }()
+    
+    lazy var latestArticlesViewController: ArticleIndexCollectionViewController = {
+        let latestArticlesViewController = ArticleIndexCollectionViewController(services: self.services)
+        latestArticlesViewController.delegate = self
+        return latestArticlesViewController
     }()
     
     init(services: Services) {
@@ -53,12 +67,6 @@ extension TabBarCoordinator: ArticleIndexCollectionViewControllerDelegate {
         articleCoordinator.delegate = self
         articleCoordinator.start()
         self.childCoordinators.append(articleCoordinator)
-        
-//        let viewController = ArticleViewController(services: self.services, article: article)
-//        viewController.delegate = self
-//        let navigationController = UINavigationController(rootViewController: viewController)
-//        self.tabBarController.presentViewController(navigationController, animated: true, completion: nil)
-        
     }
     
 }

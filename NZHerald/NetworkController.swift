@@ -93,14 +93,11 @@ class NetworkController {
     lazy var queue:NSOperationQueue = {
         var queue = NSOperationQueue()
         queue.name = "Download queue"
-        queue.maxConcurrentOperationCount = 1
+        queue.maxConcurrentOperationCount = 2
         return queue
     }()
     
-    let databaseConnection: YapDatabaseConnection
-    
-    init(databaseConnection: YapDatabaseConnection) {
-        self.databaseConnection = databaseConnection
+    init() {
         self.queue.name = "NetworkController"
     }
     
@@ -109,18 +106,18 @@ class NetworkController {
         
     }
     
-    func performRequest(request: NZHeraldAPI, completion: (Void) -> Void) {
+    func performRequest(request: NZHeraldAPI, completion: (articles: [Article]) -> Void) {
         
-        let operation = LatestNewsOperation(databaseConnection: self.databaseConnection, urlRequest: request.urlRequest)
+        let operation = LatestNewsOperation(urlRequest: request.urlRequest) { articles in
+            completion(articles: articles)
+        }
         
         operation.completionBlock = {
             print("done")
         }
         
         self.queue.addOperation(operation)
-    
-        
-//        self.queue.addOperation(operation)
+            
     }
     
     func urlRequest(request: NZHeraldAPI) -> NSMutableURLRequest {
