@@ -33,6 +33,8 @@ class ArticleIndexCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.backgroundColor = UIColor.redColor()
+        
         self.imageView.clipsToBounds = true
         
         self.contentView.addSubview(self.imageView)
@@ -40,23 +42,24 @@ class ArticleIndexCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(self.descriptionLabel)
         
         self.imageView.snp_makeConstraints { (make) in
-            make.top.equalTo(self.contentView)
-            make.leading.equalTo(self.contentView)
-            make.trailing.equalTo(self.contentView)
-            make.height.equalTo(200)
+            make.top.equalTo(self.contentView).offset(10)
+            make.leading.equalTo(self.contentView).offset(10)
+            make.height.equalTo(100)
+            make.width.equalTo(self.imageView.snp_height)
+            make.bottom.lessThanOrEqualTo(self.contentView).offset(-10)
         }
         
         self.titleLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(self.imageView.snp_bottom).offset(20)
-            make.leading.equalTo(self.contentView).offset(20)
-            make.trailing.equalTo(self.contentView).offset(-20)
+            make.top.equalTo(self.contentView).offset(10)
+            make.left.equalTo(self.imageView.snp_right).offset(10)
+            make.trailing.equalTo(self.contentView).offset(-10)
         }
         
         self.descriptionLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(self.titleLabel.snp_bottom).offset(20)
-            make.leading.equalTo(self.contentView).offset(20)
-            make.trailing.equalTo(self.contentView).offset(-20)
-            make.bottom.equalTo(self.contentView).offset(-20)
+            make.top.equalTo(self.titleLabel.snp_bottom).offset(10)
+            make.left.equalTo(self.titleLabel)
+            make.trailing.equalTo(self.contentView).offset(-10)
+            make.bottom.equalTo(self.contentView).offset(-10)
         }
     }
     
@@ -66,7 +69,8 @@ class ArticleIndexCollectionViewCell: UICollectionViewCell {
     
     func configureWithArticle(article: Article) {
         self.titleLabel.text = article.headline
-        self.descriptionLabel.text = article.introText
+//        self.descriptionLabel.text = article.introText
+        self.descriptionLabel.text = "TECHNOLOGY"
         self.imageView.kf_setImageWithURL(NSURL(string: article.imageUrl)!, placeholderImage: nil)
     }
     

@@ -28,8 +28,8 @@ class ArticleIndexCollectionViewController: UICollectionViewController, UICollec
     init(services: Services) {
         self.services = services
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 20
-        layout.minimumLineSpacing = 50
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         super.init(collectionViewLayout: layout)
         
         self.title = "Latest News"
@@ -87,7 +87,7 @@ class ArticleIndexCollectionViewController: UICollectionViewController, UICollec
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ArticleIndexCollectionViewCell
         
         let article: Article = self.articles[indexPath.row]
-        cell.backgroundColor = UIColor.whiteColor()
+//        cell.backgroundColor = UIColor.whiteColor()
         
         cell.configureWithArticle(article)
         
@@ -114,22 +114,22 @@ class ArticleIndexCollectionViewController: UICollectionViewController, UICollec
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        let targetSize = CGSize.init(width: collectionView.frame.size.width - 40, height: 100)
+        let targetSize = CGSize.init(width: collectionView.frame.size.width, height: 100)
         
         
-        return CGSize(width: targetSize.width, height: 300)
-//        
-//        let article: Article = self.articles[indexPath.row]
+//        return CGSize(width: targetSize.width, height: 300)
 //
-//        
-//        self.prototypeCell.frame = CGRectMake(0, 0, targetSize.width, targetSize.height)
-//        self.prototypeCell.configureWithArticle(article!)
-//        self.prototypeCell.setNeedsLayout()
-//        self.prototypeCell.layoutIfNeeded()
-//        
-//        let size = self.prototypeCell.contentView.systemLayoutSizeFittingSize(targetSize, withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityDefaultLow)
-//        
-//        return CGSize.init(width: size.width, height: size.height)
+        let article: Article = self.articles[indexPath.row]
+
+        
+        self.prototypeCell.frame = CGRectMake(0, 0, targetSize.width, targetSize.height)
+        self.prototypeCell.configureWithArticle(article)
+        self.prototypeCell.setNeedsLayout()
+        self.prototypeCell.layoutIfNeeded()
+        
+        let size = self.prototypeCell.contentView.systemLayoutSizeFittingSize(targetSize, withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityDefaultLow)
+        
+        return CGSize.init(width: size.width, height: size.height)
     }
     
 }
